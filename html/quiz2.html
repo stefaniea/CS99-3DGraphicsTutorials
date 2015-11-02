@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>3D Graphics Software Selector</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/thumbnail-gallery.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="page-header">
+  <h1>3D Graphic Software Quiz <small>Let's get started!</small></h1>
+</div>
+
+<section id="gallery">
+	<div class="container">
+    <form class="form-horizontal" id = "form2"  action="./quiz3.html" onsubmit="return handleFormSubmit()">
+<p class="lead">I am interested in or have a task that requires the following (check all that apply):</p>
+          <!-- Effect 5 -->
+        <div class="row gallery effect-5">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                <a href="#">
+                  <img id ="img1" src="../images/building_exterior.jpg">
+                </a>
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>Modeling or editing geometrical models like buildings or floor plans. I don't need to model any smooth, round, or curved surfaces with the exception of a simple forms like cylinders or spheres.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="polygons;nosmooth" id="checkbox1"></input>
+                    <!--<a href="#" class="btn btn-primary btn-sm">Take a look</a>-->
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+              	 <a href="#">
+                <img id = "img2" src="../images/robot.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>Modeling or editing complicated geometrical models like vehicles, blueprints, appliances, electronics, or complex architecture.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="polygons" id="checkbox2"></input>
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+              	 <a href="#">
+                <img id="img3" src="../images/gears.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>My model must be precise and/or physically accurate. For example, I am modelling a car or modelling a building that needs to match the proportions of the original.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="precise" id = "checkbox3"></input>
+                  </div>                  
+                </div>         
+              </div>
+            </div>
+          </div>
+<!-- row 2 -->
+          <div class="row gallery effect-5">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                <a href="#">
+                  <img id ="img1" src="../images/stairs.jpg">
+                </a>
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>My model includes ornate details or complex curvature that can be modeled with tube-like curves. For example, archiecture with spiral patterns, pipes, ornate stair railings. </b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="details" id="checkbox1"></input>
+                    <!--<a href="#" class="btn btn-primary btn-sm">Take a look</a>-->
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id = "img2" src="../images/dino.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>My model has curved surfaces or organic shapes such as a sculpture, person, animal, or plants.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="curves" id="checkbox2"></input>
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id="img3" src="../images/nurbs.png">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>If my model has curved surfaces, they need to look very smooth.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="smooth" id = "checkbox3"></input>
+                  </div>                  
+                </div>         
+              </div>
+            </div>
+          </div>
+</div>
+
+<!-- row 3 -->
+
+ <div class="row gallery effect-5">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                <a href="#">
+                  <img id ="img1" src="../images/nurbs_poly.jpg">
+                </a>
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>If my model has curved or smooth surfaces, it's okay if they're not completely smooth.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="curves;nosmooth" id="checkbox1"></input>
+                    <!--<a href="#" class="btn btn-primary btn-sm">Take a look</a>-->
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id = "img2" src="../images/simple_house.jpeg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>I am a beginner and/or don't have time to learn complicated software.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="easy" id="checkbox2"></input>
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id="img3" src="../images/female_sitting.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>I am modeling a sculpture, person, or character from scratch.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="scratch" id = "checkbox3"></input>
+                  </div>                  
+                </div>         
+              </div>
+            </div>
+          </div>
+
+          <!-- row 4 -->
+
+ <div class="row gallery effect-5">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                <a href="#">
+                  <img id ="img1" src="../images/ivy.jpg">
+                </a>
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>I need to model plants, trees, or other scenery.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="plants" id="checkbox1"></input>
+                    <!--<a href="#" class="btn btn-primary btn-sm">Take a look</a>-->
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id = "img2" src="../images/flat_house.png">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>I would like to or am okay with using an image or texture to replace some details in my model.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="texture;nodetail" id="checkbox2"></input>
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id="img3" src="../images/outside_lighting.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>I have an existing model that I need to import.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="import" id = "checkbox3"></input>
+                  </div>                  
+                </div>         
+              </div>
+            </div>
+          </div>
+
+<!-- row 5 -->
+          <div class="row gallery effect-5">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                <a href="#">
+                  <img id ="img1" src="../images/ornate.jpg">
+                </a>
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>My model has intricate (non-tube-like) curved geometry such as ornate craftsmanship or details.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="detail;polygon;sculpt" id="checkbox1"></input>
+                    <!--<a href="#" class="btn btn-primary btn-sm">Take a look</a>-->
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id = "img2" src="../images/hands.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>My model needs to have organic details such as wrinkles, folds, and cracks. </b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="detail;sculpt" id="checkbox2"></input>
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id="img3" src="../images/bump_map.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>My model needs to have a surface that looks bumpy, rock-like, wavy, or has a pattern like cobblestone or brick. I cannot replace this with an image and need it
+                      to look somewhat realistic. A bump map (see image) will be fine.</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="detail;bumpmap;sculpt" id = "checkbox3"></input>
+                  </div>                  
+                </div>         
+              </div>
+            </div>
+             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <div class="thumbnail">
+                 <a href="#">
+                <img id = "img2" src="../images/hands.jpg">
+                <div class="caption clearfix">
+                  <div class="pull-left">
+                    <b>I need to print this model (requires access to a 3D printer).</b>
+                  </div>
+                  <div class="pull-right">
+                    <input type = "checkbox" value="print" id="checkbox2"></input>
+                  </div>                  
+                </div>          
+              </div>
+            </div>
+          </div>
+</form>
+</section>
+<fieldset>
+
+
+</fieldset>
+</form>
+</div>
+</body>
+</html>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/fileUtils.js"></script>
+<script>
+/*$('input[type="range"]').rangeslider();
+
+$('input[type="range"]').rangeslider('destroy');
+
+$('input[type="range"]').rangeslider('update', true);*/
+
+// TODO: don't hard code this
+openSpreadsheetAsJSON();
+document.getElementById('img1').onclick = function () //attach to onclick
+{                             
+        var checkbox = document.getElementById('checkbox1'); //find checkbox
+        checkbox.checked = !checkbox.checked; //toggle the checked status
+}
+
+document.getElementById('img2').onclick = function () //attach to onclick
+{                             
+        var checkbox = document.getElementById('checkbox2'); //find checkbox
+        checkbox.checked = !checkbox.checked; //toggle the checked status
+}
+
+document.getElementById('img3').onclick = function () //attach to onclick
+{                             
+        var checkbox = document.getElementById('checkbox3'); //find checkbox
+        checkbox.checked = !checkbox.checked; //toggle the checked status
+}
+
+</script>
+
+
