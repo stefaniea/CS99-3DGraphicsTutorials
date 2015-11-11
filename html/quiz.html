@@ -1,23 +1,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>3D Graphics Software Selector</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>3D Graphics Software Selector</title><!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"><!-- Custom CSS -->
     <link href="../css/thumbnail-gallery.css" rel="stylesheet">
-
+    <link href="../css/jquery-ui.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,955 +18,1617 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+
+    section {
+    padding-bottom: 10%;
+    }
+
+    .thumbnail {
+    opacity: .7;
+    }
+
+    .highlighted {
+    opacity: 1;
+    -webkit-box-shadow: 10px 10px 49px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 49px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 49px 0px rgba(0,0,0,0.75);
+    }
+
+    label { display: block; float: left; text-align: center; width: 33%; }
+    .question > div { clear: left; }
+
+    .thumbnail:hover {
+    opacity: .9;
+    cursor: pointer;
+    }
+    input[type=radio]
+    {
+    padding: 10px;
+    }
+
+    .buttongroup {
+      padding: 10%;
+      display: inline;
+    }
+
+
+
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-<div class="page-header">
-  <h1>3D Graphic Software Quiz <small>Let's get started!</small></h1>
-</div>
-
-<section id="gallery">
-	<div class="container">
-		<form class="form-horizontal" id = "form1" onsubmit="return handleFormSubmit()">
-<p class="lead">I am interested in or have a task that requires the following (check all that apply):</p>
-          <!-- Effect 5 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://4.bp.blogspot.com/-sPOp_SJ12Pw/UP69eDpNoGI/AAAAAAAAAlY/y8fp3wd0Bn4/s1600/Screen+shot+2013-01-22+at+9.15.01+AM.png">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>Creating or editing a 3D model.</b>
-                  </div>
-                  <div class="pull-right">
-                  	<input type = "checkbox" id="checkbox1" value="model"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>3D Graphic Software Quiz <small>Let's get started!</small></h1>
+        </div>
+        <section id="gallery">
+            <div class="container">
+                <form class="form-horizontal" id="form1" name="form1" onsubmit=
+                "return handleFormSubmit()">
+                    <p class="lead">I am interested in or have a task that
+                    requires the following (check all that apply):</p>
+                    <!-- Effect 5 -->
+                    <div class="row gallery effect-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img1" src=
+                                "http://4.bp.blogspot.com/-sPOp_SJ12Pw/UP69eDpNoGI/AAAAAAAAAlY/y8fp3wd0Bn4/s1600/Screen+shot+2013-01-22+at+9.15.01+AM.png">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>Creating or editing a 3D model.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="modelstart" type="checkbox"
+                                        value="modelstart"> 
+                                        <!--<="" class="btn btn-primary btn-sm">Take a look-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img2" src=
+                                "http://grail.cs.washington.edu/rome/col-sfm0.JPG">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>Importing existing data to view in
+                                        3D.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="importstart" type="checkbox"
+                                        value="importstart">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img3" src=
+                                "https://www.cgstud.io/imgd/l/541daf5a1e43f6d40e4a50fc/3543.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>Realistic or aesthetically pleasing
+                                        lighting and/or materials.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="renderstart" id="checkbox3" type="checkbox"
+                                        value="renderstart">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img3" src=
+                                "http://cdn.eteknix.com/wp-content/uploads/2015/08/BigMac.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I have access to a Mac (Apple laptop
+                                        or desktop)</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="checkbox3" type="checkbox"
+                                        value="mac">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img3" src=
+                                "https://upload.wikimedia.org/wikipedia/en/b/bd/Windows_7.png">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I only have access to a PC (Windows
+                                        laptop or desktop)</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="checkbox3" type="checkbox"
+                                        value="windows">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img3" src=
+                                "http://pad3.whstatic.com/images/thumb/8/85/Set-up-an-FTP-Server-in-Ubuntu-Linux-Step-1.jpg/670px-Set-up-an-FTP-Server-in-Ubuntu-Linux-Step-1.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I only have access to a Linux laptop
+                                        or desktop.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="checkbox3" type="checkbox"
+                                        value="linux">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-              	 <a href="">
-                <img id = "img2" src="http://grail.cs.washington.edu/rome/col-sfm0.JPG">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>Importing existing data to view in 3D.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="import" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-              	 <a href="">
-                <img id="img3" src="https://www.cgstud.io/imgd/l/541daf5a1e43f6d40e4a50fc/3543.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>Realistic or aesthetically pleasing lighting and/or materials.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="render" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://airlivetechnologies.com/wp-content/uploads/2015/03/Operating-System-The-History.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I only have access to a machine(s) that runs:</b>
-                  </div>
-                  <div class="pull-right">
-                    <b>Mac <b><input type = "checkbox" value="linux" id = "checkbox3"></input>
-                     <b>Windows </b><input type = "checkbox" value="mac" id = "checkbox3"></input>
-                      <b>Linux </b><input type = "checkbox" value="windows" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-</div>
-
-<div name="next2" id="button1" class="btn btn-default">Next</div>
-</section>
-
-
-<section id="gallery2" style="display:none">
-  <div class="container">
-<p class="lead">I am interested in or have a task that requires the following (check all that apply):</p>
-          <!-- Effect 5 -->
-        <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://www.sketchup.com/images/case_study/construction/Jedunn_6.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>Modeling or editing geometrical models like buildings or floor plans. I don't need to model any smooth, round, or curved surfaces with the exception of a simple forms like cylinders or spheres.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="polygon" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.sketchup.com/images/case_study/engineering/chemicaldecon_1.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>Modeling or editing complicated geometrical models like vehicles, blueprints, appliances, electronics, or complex architecture.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="polygon" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.creativecrash.com/system/photos/000/060/493/60493/big/sbc-detail-6.jpg?1253394328">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model must be precise and/or physically accurate. For example, I am modelling a car or modelling a building that needs to match the proportions of the original.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="polygon" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-<!-- row 2 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://3d-land.net/uploads/iModels/full/screen_799.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model includes ornate details or complex curvature that can be modeled with tube-like curves. For example, archiecture with spiral patterns, pipes, ornate stair railings. </b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="tube" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.10ravens.com/files/product/1/1/2/preview.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model has curved surfaces or organic shapes such as a sculpture, person, animal, or plants.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="curve" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://download.autodesk.com/global/docs/maya2014/en_us/images/GUID-F60A5CAC-898C-491F-8F7B-3BEECBA7E8DF-low.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>If my model has curved surfaces, they need to look very smooth.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="smooth" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-</div>
-
-<!-- row 3 -->
-
- <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="https://worldorigin.files.wordpress.com/2012/06/nurbs_poly_3.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>If my model has curved or smooth surfaces, it's okay if they're not completely smooth.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="curves" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.upbeacon.com/wp-content/uploads/2013/11/HOUSE.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I am a beginner and/or don't have time to learn complicated software.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="easy" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.cgsociety.org/cgsarchive/newgallerycrits/g23/321523/321523_1242014052_large.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I am modeling a sculpture, person, or character from scratch.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="polygon;sculpt;curve" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
+          <div class="buttongroup">
+            <button class="btn btn-default back" id="button1back" name="backnext1"
+            type="button">Back</button>
+            <button class="btn btn-default next" id="button1" name="backnext1"
+            type="button">Next</button>
           </div>
 
-          <!-- row 4 -->
+        </section>
+        <section id="gallery2" style="display:none">
+            <div class="container">
+                <p class="lead">I am interested in or have a task that requires
+                the following (check all that apply):</p><!-- Effect 5 -->
+                <div class="row gallery effect-5">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="thumbnail">
+                            <img id="img1" src=
+                            "http://www.sketchup.com/images/case_study/construction/Jedunn_6.jpg">
+                            <div class="caption clearfix">
+                                <div class="pull-left">
+                                    <b>Modeling or editing geometrical models
+                                    like buildings or floor plans. I don't need
+                                    to model any smooth, round, or curved
+                                    surfaces with the exception of a simple
+                                    forms like cylinders or spheres.</b>
+                                </div>
+                                <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="polygon"><br>
+                                    <div class="question">
+                                        <label><input name="q1" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q1" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q1" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q1" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                    <!--<="" class="btn btn-primary btn-sm">Take a look-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="thumbnail">
+                            <img id="img2" src=
+                            "http://www.sketchup.com/images/case_study/engineering/chemicaldecon_1.jpg">
+                            <div class="caption clearfix">
+                                <div class="pull-left">
+                                    <b>Modeling or editing complicated
+                                    geometrical models like vehicles,
+                                    blueprints, appliances, electronics, or
+                                    complex architecture.</b>
+                                </div>
+                                <div class="pull-right">
+                                    <input id="checkbox2" type="checkbox"
+                                    value="polygon"><br>
+                                    <div class="question">
+                                        <label><input name="q2" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q2" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q2" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q2" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="thumbnail">
+                            <img id="img3" src=
+                            "http://www.creativecrash.com/system/photos/000/060/493/60493/big/sbc-detail-6.jpg?1253394328">
+                            <div class="caption clearfix">
+                                <div class="pull-left">
+                                    <b>My model must be precise and/or
+                                    physically accurate. For example, I am
+                                    modelling a car or modelling a building
+                                    that needs to match the proportions of the
+                                    original.</b>
+                                </div>
+                                <div class="pull-right">
+                                    <input id="checkbox3" type="checkbox"
+                                    value="polygon"><br>
+                                    <div class="question">
+                                        <label><input name="q3" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q3" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q3" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q3" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- row 2 -->
+                <div class="row gallery effect-5">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                       <img id="img1" src=
+                            "http://3d-land.net/uploads/iModels/full/screen_799.jpg">
+                            <div class="caption clearfix">
+                                <div class="pull-left">
+                                    <b>My model includes ornate details or
+                                    complex curvature that can be modeled with
+                                    tube-like curves. For example, archiecture
+                                    with spiral patterns, pipes, ornate stair
+                                    railings.</b>
+                                </div>
+                          <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="tube"><br>
+                                        <label><input name="q4" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q4" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q4" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q4" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
 
- <div class="row gallery effect-5">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://www.whitegekko.com/wp-content/uploads/2013/02/hanging-b-07.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to model plants, trees, or other scenery.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="tube;sculpt;smooth;plant" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="https://poserworld.com/Data/Sites/1//Uploads/2013/Models/Building/Luncheonette/Luncheonette-1.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I would like to or am okay with using an image or texture to replace some details in my model.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="texture;nodetail" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I am a beginner and/or don't have time to learn complicated software.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="easy" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-          </div>
+                    <div class="thumbnail">
+                        <img id="img2" src=
+                            "http://www.10ravens.com/files/product/1/1/2/preview.jpg">
+                           <div class="caption clearfix">
+                                <div class="pull-left">
+                                    <b>My model has curved surfaces or organic shapes such as a sculpture, person, animal, or plants.</b>
+                                </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="smooth;polygons;organic;sculpt"><br>
+                                        <label><input name="q5" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q5" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q5" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q5" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- row 5 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://previewcf.turbosquid.com/Preview/2014/05/27__04_29_49/069-2.jpge4936b81-ab06-471b-8d29-bcfb1388868dLarge.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model has intricate (non-tube-like) curved geometry such as ornate craftsmanship or details.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="detail;polygon;sculpt;curve" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                       <img id="img3" src=
+                          "http://download.autodesk.com/global/docs/maya2014/en_us/images/GUID-F60A5CAC-898C-491F-8F7B-3BEECBA7E8DF-low.png">
+                            <div class="pull-left">
+                                <b>If my model has curved surfaces,
+                                  they need to look very smooth. For this, I will probably need to use <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="NURBS" data-content="stands for Non-uniform rational B-spline. It's a mathematical model for representing curves and surfaces. They can be edited with control points (if you are familiar with 2D graphics, this is the 3D equivalent of the bezier tool). In other words, your model will be 'mathematically' smooth.">NURBS surfaces</a></b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="smooth;nurbs"><br>
+                                        <label><input name="q6" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q6" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q6" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q6" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- ROW -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                       <img id="img1" src=
+                        "https://worldorigin.files.wordpress.com/2012/06/nurbs_poly_3.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>If my model has curved or smooth surfaces,
+                                it's okay if they're not completely smooth (you may see some of the underlying edges or polygons, for instance).</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="curves"><br>
+                                        <label><input name="q7" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q7" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q7" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q7" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src=
+                        "http://www.upbeacon.com/wp-content/uploads/2013/11/HOUSE.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I am a beginner and/or don't have time to
+                                learn complicated software.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="easy"><br>
+                                        <label><input name="q8" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q8" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q8" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q8" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://www.cgsociety.org/cgsarchive/newgallerycrits/g23/321523/321523_1242014052_large.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I am modeling a sculpture, person, or
+                                character from scratch.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="model"><br>
+                                        <label><input name="q9" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q9" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q9" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q9" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 4 -->
+
+
+
+            <!--ROW-->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "http://www.whitegekko.com/wp-content/uploads/2013/02/hanging-b-07.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I need to model plants, trees, or other
+                                scenery.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="tube;sculpt;smooth;plant"><br>
+                                        <label><input name="q10" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q10" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q10" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q10" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                       <img id="img2" src=
+                        "https://poserworld.com/Data/Sites/1//Uploads/2013/Models/Building/Luncheonette/Luncheonette-1.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I would like to or am okay with using an
+                                image or texture to replace some details in my
+                                model.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="texture"><br>
+                                        <label><input name="q11" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q11" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q11" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q11" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I am a beginner and/or don't have time to
+                                learn complicated software.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="easy"><br>
+                                        <label><input name="q12" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q12" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q12" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q12" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 5 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "http://previewcf.turbosquid.com/Preview/2014/05/27__04_29_49/069-2.jpge4936b81-ab06-471b-8d29-bcfb1388868dLarge.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My model has intricate (non-tube-like)
+                                curved geometry such as ornate craftsmanship or
+                                details.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="detail;polygon;sculpt;curve"><br>
+                                        <label><input name="q13" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q13" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q13" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q13" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src=
+                        "http://www.selwy.com/wordpress/wp-content/uploads/2008/09/arthur_hand.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My model needs to have organic details such
+                                as wrinkles, folds, and cracks that do not need
+                                to be exact and could be sculpted.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="detail;sculpt"><br>
+                                        <label><input name="q14" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q14" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q14" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q14" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://www.vray.com/vray_for_sketchup/manual/vray_for_sketchup_manual/bump_maps/vray_for_sketchup_bump_maps_7.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My model needs to have a surface that looks
+                                bumpy, rock-like, wavy, or has a pattern like
+                                cobblestone or brick. I cannot replace this
+                                with an image and need it to look somewhat
+                                realistic.  <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Bump Map" data-content="is a technique for simulating bumps and wrinkles on the surface of an object. This is achieved by perturbing the surface normals of the object and using the perturbed normal during lighting calculations. Usually the input of a bump map is an image or height map.">A bump map </a>  (see image on right) will
+                                be fine.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="bumpmap"><br>
+                                        <label><input name="q15" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q15" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q15" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q15" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src=
+                        "http://www.3ders.org/images/mario-3d-printed-mario-1.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I need to print this model (requires access
+                                to a 3D printer).</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="export3dprint"><br>
+                                        <label><input name="q16" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q16" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q16" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q16" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.selwy.com/wordpress/wp-content/uploads/2008/09/arthur_hand.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model needs to have organic details such as wrinkles, folds, and cracks that do not need to be exact and could be sculpted.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="detail;sculpt" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.vray.com/vray_for_sketchup/manual/vray_for_sketchup_manual/bump_maps/vray_for_sketchup_bump_maps_7.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model needs to have a surface that looks bumpy, rock-like, wavy, or has a pattern like cobblestone or brick. I cannot replace this with an image and need it
-                      to look somewhat realistic. A bump map (see image on right) will be fine.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="detail;bumpmap;sculpt" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.3ders.org/images/mario-3d-printed-mario-1.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to print this model (requires access to a 3D printer).</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="export3dprint" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-          </div>
-<button name="next3" id="button2" type="button" class="btn btn-default">Next</button>
+          <div class="buttongroup"><button class="btn btn-default back" id="button2back" name="backnext3"
+            type="button">Back</button>
+            </div><button class="btn btn-default next" id="button2" name="next3"
+            type="button">Next</button></div>
         </section>
 
-<section id="gallery3" style="display:none">
-  <div class="container">
-    <form class="form-horizontal" id = "form3"  action="./quiz3.html" onsubmit="return handleFormSubmit()">
-<p class="lead">I am interested in or have a task that requires the following (check all that apply):</p>
-          <!-- Effect 5 -->
-        <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://www.forestinventory.no/wp-content/uploads/2011/10/PointCloud.png">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have data in the form of a point cloud. I have data that includes many points that represent the exterior of an object, city, or terrain taken by a 3D scanner, satelllite, or camera for example.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="pointcloud" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://3dprint.com/wp-content/uploads/2014/09/s4.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I know that my data is in terms of voxels (if you're not sure, don't check this).</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="voxel" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-              <!--  <img id="img3" src="">-->
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I know the format of my data. It is (eg. obj, fbx, ...)<input value="format" type="text"> </input></b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="import" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-<!-- row 2 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="http://theinspirationgrid.com/wp-content/uploads/2013/05/Tim-Reynolds-3D-Low-Polygon-09.jpg">
-                  <img id ="img1" src="../images/stairs.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>Even if I'm not sure how the data is formatted, I know that it is listed
-                      in terms of triangles, squares, and/or lines.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="polygon" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.jmp.com/support/help/images/Intro.gif">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I want to make a 3D scatterplot or simple 3D graph.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="scatterplot;simple" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.doka.ch/3Dscatterplot.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to be able to analyze the data by running some computations over it.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="analyze" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-</div>
+        <section id="gallery3" style="display:none">
+            <div class="container">
+                <form action="./quiz3.html" class="form-horizontal" id="form3"
+                name="form3" onsubmit="return handleFormSubmit()">
+                    <p class="lead">I am interested in or have a task that
+                    requires the following (check all that apply):</p>
+                    <!-- Effect 5 -->
+                    <div class="row gallery effect-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img1" src=
+                                "http://www.forestinventory.no/wp-content/uploads/2011/10/PointCloud.png">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I have data in the form of a point
+                                        cloud. I have data that includes many
+                                        points that represent the exterior of
+                                        an object, city, or terrain taken by a
+                                        3D scanner, satelllite, or camera for
+                                        example.</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="pointcloud"><br>
+                                        <label><input name="q17" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q17" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q17" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q17" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img2" src=
+                                "http://3dprint.com/wp-content/uploads/2014/09/s4.png">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I know that my data is in terms of
+                                        voxels (if you're not sure, don't check
+                                        this).</b>
+                                    </div>
+                                <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="voxelimport"><br>
+                                        <label><input name="q18" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q18" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q18" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q18" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <!--  <img id="img3" src="">-->
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I know the format of my data. It is
+                                        (eg. obj, fbx, ...)<input type="text"
+                                        value="format"></b> 
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="import"><br>
+                                        <label><input name="q19" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q19" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q19" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q19" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- row 2 -->
+                    <div class="row gallery effect-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <a href=
+                                "http://theinspirationgrid.com/wp-content/uploads/2013/05/Tim-Reynolds-3D-Low-Polygon-09.jpg">
+                                <img id="img1" src="../images/stairs.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>Even if I'm not sure how the data is
+                                        formatted, I know that it is listed in
+                                        terms of triangles, squares, and/or
+                                        lines.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="polygon"><br>
+                                        <label><input name="q20" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q20" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q20" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q20" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img2" src=
+                                "http://www.jmp.com/support/help/images/Intro.gif">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I want to make a 3D scatterplot or
+                                        simple 3D graph.</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="scatterplot;simple"><br>
+                                        <label><input name="q21" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q21" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q21" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q21" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                ="" <img id="img3" src=
+                                "http://www.doka.ch/3Dscatterplot.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I need to be able to analyze the
+                                        data by running some computations over
+                                        it.</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="analyze"><br>
+                                        <label><input name="q22" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q22" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q22" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q22" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- row 3 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "http://www.welfenlab.de/file/2014/08/20/YaDiV_skull_1.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I just need to be able to visualize the
+                                data. I don't need to run any computations, and
+                                I don't need much customization.</b>
+                            </div>
+                           <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="visualize"><br>
+                                        <label><input name="q23" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q23" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q23" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q23" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I am a beginner and/or don't have time to
+                                learn complicated software.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="easy"><br>
+                                        <label><input name="q24" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q24" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q24" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q24" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://projects.fun4mobile.de/wp-content/uploads/sites/2/2014/07/Example2.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data is in the form of many photographs
+                                that I need to stitch together to make a 3D
+                                scene. For example, to create a virtual space or virtual tour from photographs, as is often done in real estate.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="sitch"><br>
+                                        <label><input name="q25" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q25" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q25" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q25" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 4 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src="">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data corresponds to an object, scene,
+                                character, etc. that needs to be converted into
+                                an editable model. For example, I need to be
+                                able to see the model and retouch it and/or add
+                                detail.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="edit;import"><br>
+                                        <label><input name="q25" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q25" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q25" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q25" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src="../images/flat_house.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I know at least a little bit about coding and am able to write small mathematical programs. I would not mind writing a little bit of code to open or edit my data.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="code"><br>
+                                        <label><input name="q26" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q26" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q26" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q26" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        ="" <img id="img3" src=
+                        "http://oivdoc91.vsg3d.com/sites/default/files/imported/usersguide/images/VVHeightField1.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data will look like a <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Height Field" data-content="(or height map) is an image used to store values, such as surface elevation data, for display in 3D.">height field</a> or
+                                correspond to something that looks like a heigh
+                                field. For example, my data is of terrain, tops
+                                of buildings, or can be represented as an
+                                function of 2 variables.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="heightfield"><br>
+                                        <label><input name="q27" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q27" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q27" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q27" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 5 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src="">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data is in more than 3-dimensions (4D,
+                                5D, etc.).</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="dimension"><br>
+                                        <label><input name="q28" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q28" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q28" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q28" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src="../images/hands.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I know my data is scattered. My data is
+                                non-uniform, and not very concentrated.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="scattered"><br>
+                                        <label><input name="q29" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q29" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q29" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q29" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                       <img id="img3" src="../images/bump_map.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I know my data is uniform.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="uniform"><br>
+                                        <label><input name="q30" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q30" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q30" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q30" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 6 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "https://www.andrew.cmu.edu/user/jessicaz/publication/quadhex/UNChead.bmp">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data is of a volume, not just a surface.
+                                It includes the exterior as well as the
+                                interior of an object, scene, or model. I need
+                                to be able to see or slice the object to see
+                                the "inside". For example, a scientific model
+                                like an organ where you need to see the
+                                interior.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="voxelimport"><br>
+                                        <label><input name="q31" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q31" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q31" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q31" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://www.cs.unc.edu/~marc/tutorial/img778.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data describes the surface of an object.
+                                I don't need to see the inside of a volume.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="surface"><br>
+                                        <label><input name="q32" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q32" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q32" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q32" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://www.everygraph.com/product/voxel3d/pic/dog.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I know I need to import <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Voxel" data-content="represents a value in a 3D grid (basically, a 3D version of a pixel). Voxels are frequently used in the visualization and analysis of medical and scientific data.">voxel data</a>, which is
+                                data in the form of an image stack. This is
+                                common in MRI scans and other medical
+                                imaging.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="voxelimport;imagestack"><br>
+                                        <label><input name="q33" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q33" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q33" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q33" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 6 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "https://indranilsinharoy.files.wordpress.com/2013/01/stanforddragon_polymesh.png?w=640&h=454">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>My data is very large. I have over (possibly
+                                well over) thousand data points or polygons. If
+                                I have just a single or few models in a scene,
+                                those models are very detailed so they probably
+                                use a lot of polygons or curves to describe
+                                them.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="large"><br>
+                                        <label><input name="q34" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q34" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q34" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q34" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- row 3 -->
+            </div>
 
- <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://www.welfenlab.de/file/2014/08/20/YaDiV_skull_1.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I just need to be able to visualize the data. I don't need to run any computations, and I don't need
-                      much customization.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="visualize" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I am a beginner and/or don't have time to learn complicated software.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="easy" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://projects.fun4mobile.de/wp-content/uploads/sites/2/2014/07/Example2.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data is in the form of many photographs that I need to stitch together to make a 3D scene.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="stitch" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-
-          <!-- row 4 -->
-
- <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data corresponds to an object, scene, character, etc. that needs to be converted into an
-                      editable model. For example, I need to be able to see the model and retouch it and/or add detail.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="edit;model;import" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="../images/flat_house.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data does not need to be retouched in any way. I just need to be able to see it.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://oivdoc91.vsg3d.com/sites/default/files/imported/usersguide/images/VVHeightField1.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data will look like a height field or correspond to something that looks like a heigh field. For example, my data is of terrain, tops of buildings, or can be represented as an function of 2 variables.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="heightfield" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-
-<!-- row 5 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data is in more than 3-dimensions (4D, 5D, etc.).</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="dimension" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="../images/hands.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data is scattered. My data is non-uniform, and not very concentrated.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="scattered" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="../images/bump_map.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data is uniform.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="uniform" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-
-<!-- row 6 -->
- <div class="row gallery effect-5">
-           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="https://www.andrew.cmu.edu/user/jessicaz/publication/quadhex/UNChead.bmp">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data is of a volume, not just a surface. It includes the exterior as well as the interior of an object, scene, or model. I need to be able
-                    to see or slice the object to see the "inside". For example, a scientific model like an organ where you need to see the interior.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="voxel" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.cs.unc.edu/~marc/tutorial/img778.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My data describes the surface of an object. I don't need to see the inside of a volume.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="surface" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.everygraph.com/product/voxel3d/pic/dog.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I know I need to import voxel data, which is data in the form of an image stack. This is common in
-                      MRI scans and other medical imaging.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="voxel;imagestack" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-          <button name="next2" id="button3" type="button" class="btn btn-default">Next</button>
+          <div class="buttongroup">
+            <button class="btn btn-default back" id="button3back" name="backnext3"
+            type="button">Back</button>
+            </div><button class="btn btn-default next" id="button3" name="next2"
+            type="button">Next</button>
+        </div>
         </section>
-
-<section id="gallery4" style="display:none">
-   <div class="container">
-    <form class="form-horizontal" id = "form3"  action="./quiz3.html" onsubmit="return handleFormSubmit()">
-<p class="lead">I am interested in or have a task that requires the following (check all that apply):</p>
-           <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src=".http://www.cgarchitect.com/content/posts/legacy/TB/dec1.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have a model or environment that needs to be made into an image with some aesthetically pleasing lighting and/or materials.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="rendering" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://blog.playcanvas.com/wp-content/uploads/2014/12/shadingComparison2.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I am doing a light study and/or need my scene to have physically accurate lighting (image on right).</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="pbr;light;realisticmaterial" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="https://sr789.files.wordpress.com/2007/10/radiosity_comparison.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>My model or scene only needs basic lighting such that it is visible. I don't need different types of lights (e.g. spotlights, area lights).</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="basiclight" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
+        <section id="gallery4" style="display:none">
+            <div class="container">
+                <form action="./quiz3.html" class="form-horizontal" id="form3"
+                name="form3" onsubmit="return handleFormSubmit()">
+                    <p class="lead">I am interested in or have a task that
+                    requires the following (check all that apply):</p>
+                    <div class="row gallery effect-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img1" src=
+                                ".http://www.cgarchitect.com/content/posts/legacy/TB/dec1.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I have a model or environment that
+                                        needs to be made into an image with
+                                        some aesthetically pleasing lighting
+                                        and/or materials.</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="rendering"><br>
+                                        <label><input name="q35" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q35" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q35" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q35" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img2" src=
+                                "http://blog.playcanvas.com/wp-content/uploads/2014/12/shadingComparison2.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I am doing a light study and/or need
+                                        my scene to have physically accurate
+                                        lighting (image on right).</b>
+                                    </div>
+                                    <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="pbr;light;realisticmaterial"><br>
+                                        <label><input name="q36" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q36" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q36" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q36" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img3" src=
+                                "https://sr789.files.wordpress.com/2007/10/radiosity_comparison.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>My model or scene only needs basic
+                                        lighting such that it is visible. I
+                                        don't need different types of lights
+                                        (e.g. spotlights, area lights).</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="basiclight"><br>
+                                        <label><input name="q37" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q37" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q37" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q37" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- row 2 -->
+                    <div class="row gallery effect-5">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                ="" <img id="img1" src=
+                                "http://php-robbytan.rhcloud.com/research/nightdehazing_input.jpg">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I need to have different types of
+                                        lighting in my scene. For example, my
+                                        scene has different fixtures or light
+                                        sources such as a lamp, a sun, spot
+                                        lights, or other types of lighting that
+                                        need to act differently from each
+                                        other.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="complexlights"><br>
+                                        <label><input name="q38" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q38" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q38" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q38" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img2" src=
+                                "http://www.creativecrash.com/system/photos/000/058/105/58105/big/final3.jpg?1251631071">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I need to have  <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="image-based lighting" data-content="rendering technique that uses an image to simulate the lighting of objects in a scene.">image-based lighting</a> . For example, I have a
+                                        picture of the sky and I'd like my
+                                        scene to be lit with the colors of the
+                                        sky. In this case, reflective objects
+                                        might reflect the sky.</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="imagebased"><br>
+                                        <label><input name="q39" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q39" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q39" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q39" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <img id="img3" src=
+                                "http://gearcraft.us/wp-content/uploads/2015/01/fngTf8F.png">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I need to have  <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Global Illumination" data-content="(or physically based lighting) is a group of rendering algorithms that add realistic lighting to 3D scenes. They take into account direct illumination from light sources as well as indirect illumination from light that bounces off object.">global illumination</a>.
+                                        In other words, objects that are next
+                                        to each other might effect the color of
+                                        the other. For example, putting a red
+                                        ball next to a white ball will make the
+                                        white ball a little red.</b>
+                                    </div>
+                                     <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="pbr"><br>
+                                        <label><input name="q40" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q40" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q40" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q40" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- row 3 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "http://vis.berkeley.edu/~joshea/images/monte/noantialias.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I don't need lighting to be physically
+                                accurate, but I still need it to look fairly
+                                convincing. It is not enough to just "see" the
+                                scene or model; it must also look appealing or
+                                somewhat accurate.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="rendering"><br>
+                                        <label><input name="q41" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q41" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q41" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q41" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src=
+                        "http://retrostylegames.com/img/2013/02/env-old-building-3d-model-preview.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I have objects in my scene that need to be
+                                or are already textured (colored) with an image
+                                file.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="texture"><br>
+                                        <label><input name="q42" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q42" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q42" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q42" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://opticalengineering.spiedigitallibrary.org/data/Journals/OPTICE/23421/013603_1_17.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I have object(s) in my scene that are
+                                metallic that need to look shiny. I will not
+                                settle for a "matte" looking object or even a
+                                "glossy" or reflective looking object. I need
+                                the metal to be very realistic.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="realisticmaterial"><br>
+                                        <label><input name="q43" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q43" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q43" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q43" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 4 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "https://area.autodesk.com/th.gen/?g/3k9p8-aub8f-i4q3p-52ees:760x0.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I have object(s) in my scene that are
+                                metallic that need to look shiny. I can settle
+                                for a glossy or reflective looking object, but
+                                will not settle for a simple, "matte" looking
+                                object.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="okmaterials"><br>
+                                        <label><input name="q44" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q44" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q44" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q44" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src=
+                        "http://download.autodesk.com/us/maya/2009help/mr/shaders/architectural/images/refr.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I have object(s) in my scene that are glass, water,
+                                or transparent. I need the glass to have the
+                                refractive effect of glass. I won't settle for
+                                a simply transparent object without  <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Refraction" data-content="is the way light bends through different materials, such as glass or water">height field</a> 
+                                It needs to be realistic and/or physically
+                                accurate</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="realisticmaterial"><br>
+                                        <label><input name="q45" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q45" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q45" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q45" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://www.crazy3dfree.com/uploads/120522/1_015119_1.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I have object(s) in my scene that are glass
+                                or transparent. I don't need the glass to have
+                                the refractive effect of glass. I can settle
+                                for a flat, transparent object without any
+                                refractive properties.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="okmaterial"><br>
+                                        <label><input name="q46" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q46" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q46" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q46" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 5 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "http://www.mrbluesummers.com/wp-content/uploads/2010/07/Sub-Surface-Scattering-Example.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I have objects in my scene with  <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Subsurface Scattering" data-content="is light transport where light penetrates the surface of a translucent object and scatters by interacting with the material then exits at a different point. This is necessary for realistic renders of marble, skin, leaves, wax, etc.">subsurface scattering</a> . For example, skin, milk, marble, or
+                                wax. I won't settle for a simple material
+                                without subsurface scattering properties. I
+                                need it to look realistic and/or physically
+                                accurate.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="subsurface"><br>
+                                        <label><input name="q47" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q47" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q47" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q47" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img2" src="../images/hands.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I don't have time or don't want to learn
+                                complicated software.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="easy"><br>
+                                        <label><input name="q48" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q48" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q48" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q48" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://forums.autodesk.com/autodesk/attachments/autodesk/area-b200/88210/1/3ds_Max_2014_Perspective_Issue.JPG">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I don't need to have an image of my model or
+                                scene. I am fine with always using a program to
+                                view and rotate around my scene.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="viewport"><br>
+                                        <label><input name="q49" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q49" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q49" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q49" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row 6 -->
+            <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://orig09.deviantart.net/9970/f/2014/008/3/6/kiki_turntable_animation_by_timothyb-d71e4x6.gif">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I need to be able to make a simple animation
+                                of my scene or model. For example, I'd like a
+                                video of my model or scene rotating in
+                                place.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="animation"><br>
+                                        <label><input name="q50" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q50" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q50" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q50" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://3.bp.blogspot.com/_IvDcbmva_NM/SOojtwAPM0I/AAAAAAAAA6s/HoW-_bnbhJ8/s800/tutorial_0041_3dsmax.jpg">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I need to texture objects with an image or
+                                my object has multiple colors. These objects
+                                are more complicated than spheres, planes, or
+                                cubes, and I cannot just "paint" them onto a 3D
+                                object.</b>
+                            </div>
+                             <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="uvmap"><br>
+                                        <label><input name="q51" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q51" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q51" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q51" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img3" src=
+                        "http://download.autodesk.com/esd/mudbox/help2009/images/MED/DaliSP1/English/Painting/paint_base_detail.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>There are object(s) that contain more than
+                                one color, and they are simple enough or I know
+                                enough about digital painting that I would like
+                                to "paint" them in 3D.</b>
+                            </div>
+                            <div class="pull-right">
+                                    <input id="checkbox1" type="checkbox"
+                                    value="digitalpainting"><br>
+                                        <label><input name="q52" type="radio"
+                                        value="nice"> Not Important</label>
+                                        <label><input name="q52" type="radio"
+                                        value="somewhat">  Somewhat Important</label>
+                                        <label><input name="q52" type="radio"
+                                        value="very">  Very Important</label>
+                                        <label><input name="q52" type="radio"
+                                        value="essential"> Extremely Necessary</label>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
           </div>
-<!-- row 2 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://php-robbytan.rhcloud.com/research/nightdehazing_input.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to have different types of lighting in my scene. For example, my scene has different fixtures or light sources such as a lamp, a sun, spot lights, or other types of lighting that need to act differently from each other.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="complexlights" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://www.creativecrash.com/system/photos/000/058/105/58105/big/final3.jpg?1251631071">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to have lighting based on an image file. For example, I have a picture of the sky and I'd like my scene to be lit with the colors of the sky. In this case, reflective objects might reflect the sky.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://gearcraft.us/wp-content/uploads/2015/01/fngTf8F.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to have global illumination. In other words, objects that are next to each other might effect the color of the other. For example, putting a red ball next to a white ball will make the white ball a little red.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="pbr" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-</div>
 
-<!-- row 3 -->
-
- <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://vis.berkeley.edu/~joshea/images/monte/noantialias.png">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I don't need lighting to be physically accurate, but I still need it to look fairly convincing. It
-                      is not enough to just "see" the scene or model; it must also look appealing or somewhat accurate.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="rendering" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://retrostylegames.com/img/2013/02/env-old-building-3d-model-preview.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have objects in my scene that need to be or are already textured (colored) with an image file.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="texture" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://opticalengineering.spiedigitallibrary.org/data/Journals/OPTICE/23421/013603_1_17.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have object(s) in my scene that are metallic that need to look shiny. I will not settle for a "matte" looking object or even a "glossy" or reflective looking object. I need the metal to be very realistic.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="realisticmaterial" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-
-          <!-- row 4 -->
-
- <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="https://area.autodesk.com/th.gen/?g/3k9p8-aub8f-i4q3p-52ees:760x0.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have object(s) in my scene that are metallic that need to look shiny. I can settle for a glossy or reflective looking object, but will not settle for a simple, "matte" looking object. </b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="http://download.autodesk.com/us/maya/2009help/mr/shaders/architectural/images/refr.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have object(s) in my scene that are glass or transparent. I need the glass to have the refractive effect of glass. I won't settle for a simply transparent object without refraction. It needs to be realistic and/or physically accurate</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="realisticmaterial" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://www.crazy3dfree.com/uploads/120522/1_015119_1.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have object(s) in my scene that are glass or transparent. I don't need the glass to have the refractive effect of glass. I can settle for a flat, transparent object without any refractive properties.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-
-<!-- row 5 -->
-          <div class="row gallery effect-5">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                <a href="">
-                  <img id ="img1" src="http://www.mrbluesummers.com/wp-content/uploads/2010/07/Sub-Surface-Scattering-Example.jpg">
-                </a>
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I have objects in my scene with subsurface scattering. For example, skin, milk, marble, or wax. I won't settle for a simple material without subsurface scattering properties. I need it to look realistic and/or physically accurate.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="subsurfacescattering" id="checkbox1"></input>
-                    <!--<a href="" class="btn btn-primary btn-sm">Take a look</a>-->
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id = "img2" src="../images/hands.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I don't have time or don't want to learn complicated software.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="easy" id="checkbox2"></input>
-                  </div>                  
-                </div>          
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://forums.autodesk.com/autodesk/attachments/autodesk/area-b200/88210/1/3ds_Max_2014_Perspective_Issue.JPG">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I don't need to have an image of my model or scene. I am fine with always using a program to view and rotate around my scene.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="viewport" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-
-<!-- row 6 -->
- <div class="row gallery effect-5">
-           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://orig09.deviantart.net/9970/f/2014/008/3/6/kiki_turntable_animation_by_timothyb-d71e4x6.gif">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to be able to make a simple animation of my scene or model. For example, I'd like a video of my model or scene rotating in place.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="animation" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://3.bp.blogspot.com/_IvDcbmva_NM/SOojtwAPM0I/AAAAAAAAA6s/HoW-_bnbhJ8/s800/tutorial_0041_3dsmax.jpg">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>I need to texture objects with an image or my object has multiple colors. These objects are more complicated than spheres, planes, or cubes, and I cannot just "paint" them onto a 3D object.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="uvmap" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <div class="thumbnail">
-                 <a href="">
-                <img id="img3" src="http://download.autodesk.com/esd/mudbox/help2009/images/MED/DaliSP1/English/Painting/paint_base_detail.png">
-                <div class="caption clearfix">
-                  <div class="pull-left">
-                    <b>There are object(s) that contain more than one color, and they are simple enough or I know enough about digital painting that I would like to "paint" them in 3D.</b>
-                  </div>
-                  <div class="pull-right">
-                    <input type = "checkbox" value="digitalpainting" id = "checkbox3"></input>
-                  </div>                  
-                </div>         
-              </div>
-            </div>
-          </div>
-<button id="button4" type="submit" name="submit" class="btn btn-default">See Results!</button>
-<fieldset>
-
-</fieldset>
-</form>
-
-</div>
-</section>
-  </a> <!-- fix unmatched link tag-->
-<section id="results" style="display:none; padding: 5%"><h2>Results</h2></section>
-
-
+          <div class="buttongroup"><button class="btn btn-default back" id="button4back" name="backnext3"
+            type="button">Back</button>
+            </div><button class="btn btn-default next" id="button4" name="submit"
+            type="submit">See Results!</button></div>
+            <fieldset></fieldset>
+        </section>
+    </div><!-- fix unmatched link tag-->
+    <section id="results" style="display:none; padding: 5%">
+        <h2>Results</h2>
+    </section>
 </body>
 </html>
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script src="../js/jquery-ui.min.js"></script>
 <script src="../js/fileUtils.js"></script>
 <script src="../js/handleInput.js"></script>
 
@@ -986,13 +1641,34 @@ $('input[type="range"]').rangeslider('destroy');
 
 $('input[type="range"]').rangeslider('update', true);*/
 
+// init so all radio "    Somewhat Important" are checked off
+
+$(":radio[value=somewhat]").attr("checked", true);
+
+/*$(".question").each(function() {
+    var radios = $(this).find(":radio").hide();
+    $("<div></div>").slider({
+      min: parseInt(radios.first().val(), 10),
+      max: parseInt(radios.last().val(), 10),
+      slide: function(event, ui) {
+        radios.filter("[value=" + ui.value + "]").click();
+      }
+    }).appendTo(this);
+});*/
+
+var relevant = [false, false, false];
 $("#button1").click(function(e) {
   e.preventDefault();
+  relevant = checkRelevance();
   $("#gallery").hide();
   $("#gallery3").hide();
   $("#gallery4").hide();
   $("#gallery2").show();
   $("#results").hide();
+  window.scrollTo(0, 0);
+  if (!relevant[0]) {
+    $("#button2").click();
+  }
 });
 
 $("#button2").click(function(e) {
@@ -1002,6 +1678,10 @@ $("#button2").click(function(e) {
   $("#gallery4").hide();
   $("#results").hide();
   $("#gallery3").show();
+  window.scrollTo(0, 0);
+    if (!relevant[1]) {
+    $("#button3").click();
+  }
 });
 
 $("#button3").click(function(e) {
@@ -1011,6 +1691,10 @@ $("#button3").click(function(e) {
   $("#gallery4").show();
   $("#gallery2").hide();
   $("#results").hide();
+  if (!relevant[2]) {
+    $("#button4").click();
+  }
+  window.scrollTo(0, 0);
 });
 
 $("#button4").click(function(e) {
@@ -1021,6 +1705,32 @@ $("#button4").click(function(e) {
   $("#gallery4").hide()
   $("#gallery2").hide();
   $("#results").show();
+  window.scrollTo(0, 0);
+});
+
+ $(".thumbnail input:radio").click(function(e) {
+        e.stopPropagation();
+   });
+
+  $("a[data-toggle=popover]").click(function(e) {
+        e.stopPropagation();
+   });
+
+ $(":input[value=essential]").parent().hide();
+
+$(".thumbnail").click(function() {
+ // var isChecked = $(this).find(":input:checkbox").checked
+ console.log(this);
+ if ($(this).type == "radio") return;
+  if ($(this).hasClass("highlighted")) {
+    console.log("had highlighted. remove class");
+    $(this).removeClass("highlighted");
+      $(this).find(":input:checkbox").prop('checked', false);
+  } else {
+    console.log("not highlighted, add higihlighted");
+    $(this).addClass("highlighted");
+      $(this).find(":input:checkbox").prop('checked', true);
+  }
 });
 
 // TODO: don't hard code this

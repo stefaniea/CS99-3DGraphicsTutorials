@@ -1,10 +1,34 @@
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
 
+// translate fields to words for results page:
+var wordMap = {"studentprice" : "student price", "polygon" : "handles polygon objects", 
+"rigging" : "rigging", "simulations" : "simulations such as fluid or clouds", 
+"basiclight" : "basic lighting", "complexlighting" : "multiple lights", 
+"scupt" : "sculpting", "textures" : "textures", "realisticmaterials" : "realistic materials such as glass and metals", 
+"smooth" : "smooth (NURBS) surfaces", "tube" : "tube-like curves", "bumpmap" : "bump maps", 
+"normalmap" : "normalmap", "compatiblewith" : "compatible with other software", 
+"digitalpaint" : "digital painting", "pbr" : "physically based rendering", 
+"easy" : "easy to learn and use", "voxeledit" : "voxel editing", 
+"visualize" : "visualizing data", "heightfield" : "high field import and/or creation", 
+"voxelimport" : "voxel import", "export3dprint" : "3D printing format export", 
+"vectormapimport" : "vector map import", "rastermapimport" : "raster map import",
+ "uvmap" : "uv mapping", "analyzetools" : "tools for analytics", 
+ "geo" : "handles geographical data" };
 
 // Splits string into array by semi color. e.g. abc;de;f into array {abc, de, f}
 function splitBySemiColon(vals) {
 	return vals.split(';');
 }
 
+function checkRelevance() {
+	rel = [false, false, false];
+	rel[0] = document.getElementById("modelstart").checked;
+	rel[1] = document.getElementById("importstart").checked;
+	rel[2] = document.getElementById("renderstart").checked;
+	return rel;
+}
 
 // Handles form submission by counting values into map
 // TODO: weighting
@@ -13,21 +37,30 @@ function handleFormSubmit() {
 	var answerMap = {};
 
 	console.log("handling form submit");
-	var allInputs = $( ":input" );
+	var allInputs = $( ":input:checkbox" );
 	console.log("number of inputs is " + allInputs.length);
 	console.log("about to handle");
- 	for (var i = 0; i < allInputs.length-1; i++) { // all but last one (button)
+ 	for (var i = 0; i < allInputs.length; i++) { // all but last one (button)
  		elem = allInputs[i];
  		console.log("handling elem " + elem.value);
  		if (elem.checked) {
  			console.log("element was checked");
+ 			var radio = $(elem.parentElement).find('input:radio:checked');
+ 			console.log("radio button is" + radio);
+ 			var weight = 1;
+ 			if (radio != null) {
+ 				if (radio.length > 0) radio = radio[0];
+	 			if (radio.value == "somewhat") weight = 1;
+	 			if (radio.value == "very") weight = 2;
+	 			if (radio.value == "essential") weight = 3;
+ 		}
  			var vals = elem.value;
  			var vallist = splitBySemiColon(vals);
  			for (val of vallist) {
  				if (answerMap[val] != null) {
- 					answerMap[val]++;
+ 					answerMap[val]+=weight;
  				} else {
- 					answerMap[val] = 1;
+ 					answerMap[val] = weight;
  				}
  			}
  		}
@@ -73,7 +106,7 @@ function displayResults(results) {
 			div.innerHTML = '<h3>'+r.name + '</h3><p>' + r.description+'</p><p>Score: '+ r.score+'</p>';
 			section.append(div);
 		}
-		
+		if (i > 10) break;
 		i++;
 	}
 }
