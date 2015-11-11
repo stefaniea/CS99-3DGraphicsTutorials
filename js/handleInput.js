@@ -15,7 +15,8 @@ var wordMap = {"studentprice" : "student price", "polygon" : "handles polygon ob
 "voxelimport" : "voxel import", "export3dprint" : "3D printing format export", 
 "vectormapimport" : "vector map import", "rastermapimport" : "raster map import",
  "uvmap" : "uv mapping", "analyzetools" : "tools for analytics", 
- "geo" : "handles geographical data" };
+ "geo" : "handles geographical data", "windows" : "runs on Windows", "mac" : "runs on Mac", "linux" : "runs on Linux",
+ "animation" : "animation" };
 
 // Splits string into array by semi color. e.g. abc;de;f into array {abc, de, f}
 function splitBySemiColon(vals) {
@@ -88,13 +89,57 @@ function handleFormSubmit() {
 	});
  }
 
+function findMaxScore(results) {
+var max = .0000001;
+for (r of results) {
+	if (max < r.score) max = r.score;
+}
+return max;
+}
+
+// Get a normalized score (out of 100)
+function normalizeResults(results) {
+	var max = findMaxScore(results);
+	for (r of results) {
+		r.score = 100*r.score/max;
+	}
+	return results;
+}
+
+// Given an array, output a English string list of it (i.e. [a, b, c] -> a, b, and c)
+function matchesToString(r_matches) {
+	if (r_matches == null) {
+		return "nothing :("
+	}
+	var matches = "";
+	if (r_matches.length == 1) {
+		return r_matches[0];
+	} else if (r_matches.length == 2) {
+		return r_matches[0] + " and " + r_matches[1];
+	}
+
+	var i = 0;
+	for (m of r_matches) {
+		if (i == r_matches.length - 1) {
+			matches = matches + "and " + r_matches[i];
+		} else {
+			matches = matches + r_matches[i] + ",";
+			i = i + 1;
+		}
+	}
+	return matches;
+}
+
+// Given sorted results (including name, score, and matches) display them in order.
+// Displays the first 6 in detail and the rest just names
 function displayResults(results) {
 	var section = $("#results");
 	var i = 0;
+	results = normalizeResults(results);
 	for (r of results) {
 		if (i==6) {
 			div = document.createElement('div');
-			div.innerHTML = '<h3>Other results:</h3><h6>'+r.name + '</h6><p>';
+			div.innerHTML = '<h3>Other results:</h3><h6>'+ r.name + '</h6><p>';
 			section.append(div);
 		}
 		if (i > 6) {
@@ -103,10 +148,22 @@ function displayResults(results) {
 			section.append(div);
 		} else if (i < 6) {
 			div = document.createElement('div');
-			div.innerHTML = '<h3>'+r.name + '</h3><p>' + r.description+'</p><p>Score: '+ r.score+'</p>';
+			div.innerHTML = '<h3>'+r.name + '</h3><p>' + r.description+'</p><p>Score: '+ r.score +'%</p>' +
+						'<div class="meter">' + '<span style="width: '+ r.score +'%"></span></div>';
 			section.append(div);
 		}
 		if (i > 10) break;
 		i++;
 	}
+
+	 $(function() {
+            $(".meter > span").each(function() {
+                $(this)
+                    .data("origWidth", $(this).width())
+                    .width(0)
+                    .animate({
+                        width: $(this).data("origWidth")
+                    }, 1200);
+            });
+        });
 }

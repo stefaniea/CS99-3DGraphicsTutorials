@@ -842,7 +842,9 @@ var results = [];
 	});
 }
 
+    console.log("RES before sorted");
 	sorted = sortResults(results);
+    console.log("RES before display" + results);
 	displayResults(sorted);
 }
 
@@ -851,11 +853,12 @@ var results = [];
  	apps = [];
  	var i = 0;
  	for (a of data) {
+        a.matches = [];
  		var os = false;
  		a.score = 0;
  		console.log("a of data " + a);
  		for (prop in answerMap) {
- 			console.log("prop in answerMap" + prop);
+ 			//console.log("prop in answerMap" + prop);
  			if (!answerMap.hasOwnProperty(prop)) {
         	//The current property is not a direct property of p
         	continue;
@@ -863,9 +866,16 @@ var results = [];
         else if (a[prop] != null && a[prop] == "yes") {
         	a.score = a.score + answerMap[prop];
         	if (!os && (prop == "mac" || prop == "linux" || prop == "windows")) {
-        		a.score += 0; // add a large number because operating system is important
+        		a.score += 10; // add a large number because operating system is important
         		os = true; // do this only once though.
-        	}
+                //a.matches.push("operating system");
+
+        	} else {
+                var match = wordMap[prop];
+                if (match == null) match = prop;
+                a.matches.push(match);
+                //console.log("PUSHING TO MATCHES " + wordMap[prop] + " from " + prop);
+            }
         }
     }
     apps[i] = a;
