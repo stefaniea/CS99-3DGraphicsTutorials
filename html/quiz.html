@@ -11,189 +11,17 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet"><!-- Custom CSS -->
     <link href="../css/thumbnail-gallery.css" rel="stylesheet">
     <link href="../css/jquery-ui.min.css" rel="stylesheet">
-        <link rel='stylesheet' href='../css/style.css'>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel='stylesheet' href='../css/style.css'>
 
-    <style>
-
-    section {
-    padding-bottom: 10%;
-    }
-
-    .thumbnail {
-    opacity: .7;
-    }
-
-    .highlighted {
-    opacity: 1;
-    -webkit-box-shadow: 10px 10px 49px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 49px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 49px 0px rgba(0,0,0,0.75);
-    }
-
-    label { display: block; float: left; text-align: center; width: 33%; }
-    .question > div { clear: left; }
-
-    .thumbnail:hover {
-    opacity: .9;
-    cursor: pointer;
-    }
-    input[type=radio]
-    {
-    padding: 10px;
-    }
-
-    .buttongroup {
-      padding: 10%;
-      display: inline;
-    }
-
-   .meter { 
-            height: 20px;  /* Can be anything */
-            position: relative;
-            margin: 60px 0 20px 0; /* Just for demo spacing */
-            background: #555;
-            -moz-border-radius: 25px;
-            -webkit-border-radius: 25px;
-            border-radius: 25px;
-            padding: 10px;
-            -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
-            -moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
-            box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
-        }
-        .meter > span {
-            display: block;
-            height: 100%;
-               -webkit-border-top-right-radius: 8px;
-            -webkit-border-bottom-right-radius: 8px;
-                   -moz-border-radius-topright: 8px;
-                -moz-border-radius-bottomright: 8px;
-                       border-top-right-radius: 8px;
-                    border-bottom-right-radius: 8px;
-                -webkit-border-top-left-radius: 20px;
-             -webkit-border-bottom-left-radius: 20px;
-                    -moz-border-radius-topleft: 20px;
-                 -moz-border-radius-bottomleft: 20px;
-                        border-top-left-radius: 20px;
-                     border-bottom-left-radius: 20px;
-            background-color: rgb(43,194,83);
-            background-image: -webkit-gradient(
-              linear,
-              left bottom,
-              left top,
-              color-stop(0, rgb(43,194,83)),
-              color-stop(1, rgb(84,240,84))
-             );
-            background-image: -moz-linear-gradient(
-              center bottom,
-              rgb(43,194,83) 37%,
-              rgb(84,240,84) 69%
-             );
-            -webkit-box-shadow: 
-              inset 0 2px 9px  rgba(255,255,255,0.3),
-              inset 0 -2px 6px rgba(0,0,0,0.4);
-            -moz-box-shadow: 
-              inset 0 2px 9px  rgba(255,255,255,0.3),
-              inset 0 -2px 6px rgba(0,0,0,0.4);
-            box-shadow: 
-              inset 0 2px 9px  rgba(255,255,255,0.3),
-              inset 0 -2px 6px rgba(0,0,0,0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .meter > span:after, .animate > span > span {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background-image: 
-               -webkit-gradient(linear, 0 0, 100% 100%, 
-                  color-stop(.25, rgba(255, 255, 255, .2)), 
-                  color-stop(.25, transparent), color-stop(.5, transparent), 
-                  color-stop(.5, rgba(255, 255, 255, .2)), 
-                  color-stop(.75, rgba(255, 255, 255, .2)), 
-                  color-stop(.75, transparent), to(transparent)
-               );
-            background-image: 
-                -moz-linear-gradient(
-                  -45deg, 
-                  rgba(255, 255, 255, .2) 25%, 
-                  transparent 25%, 
-                  transparent 50%, 
-                  rgba(255, 255, 255, .2) 50%, 
-                  rgba(255, 255, 255, .2) 75%, 
-                  transparent 75%, 
-                  transparent
-               );
-            z-index: 1;
-            -webkit-background-size: 50px 50px;
-            -moz-background-size: 50px 50px;
-            -webkit-animation: move 2s linear infinite;
-               -webkit-border-top-right-radius: 8px;
-            -webkit-border-bottom-right-radius: 8px;
-                   -moz-border-radius-topright: 8px;
-                -moz-border-radius-bottomright: 8px;
-                       border-top-right-radius: 8px;
-                    border-bottom-right-radius: 8px;
-                -webkit-border-top-left-radius: 20px;
-             -webkit-border-bottom-left-radius: 20px;
-                    -moz-border-radius-topleft: 20px;
-                 -moz-border-radius-bottomleft: 20px;
-                        border-top-left-radius: 20px;
-                     border-bottom-left-radius: 20px;
-            overflow: hidden;
-        }
-        
-        .animate > span:after {
-            display: none;
-        }
-        
-        @-webkit-keyframes move {
-            0% {
-               background-position: 0 0;
-            }
-            100% {
-               background-position: 50px 50px;
-            }
-        }
-        
-        .orange > span {
-            background-color: #f1a165;
-            background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
-            background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
-            background-image: -webkit-linear-gradient(#f1a165, #f36d0a); 
-        }
-        
-        .red > span {
-            background-color: #f0a3a3;
-            background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
-            background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
-            background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
-        }
-        
-        .nostripes > span > span, .nostripes > span:after {
-            -webkit-animation: none;
-            background-image: none;
-        }
-
-    </style>
 </head>
-        <div class="meter">
-            <span style="width: 25%"></span>
-        </div>
 <body>
     <div class="container">
         <div class="page-header">
-            <h1>3D Graphic Software Quiz <small>Let's get started!</small></h1>
+            <h1>3D Graphic Software Selector</h1>
         </div>
         <section id="gallery">
             <div class="container">
-                <form class="form-horizontal" id="form1" name="form1" onsubmit=
-                "return handleFormSubmit()">
+                <form class="form-horizontal" id="form1" name="form1">
                     <p class="lead">I am interested in or have a task that
                     requires the following (check all that apply):</p>
                     <!-- Effect 5 -->
@@ -295,14 +123,62 @@
                             </div>
                         </div>
                     </div>
+<!--row-->
+                        <div class="row gallery effect-5">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+  
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I am <b>not<b> willing to pay any money for the software.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="money0" type="checkbox"
+                                        value="money0"> 
+                                        <!--<="" class="btn btn-primary btn-sm">Take a look-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I am <b>not<b> willing to pay more than $100 for the software</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="money100" type="checkbox"
+                                        value="money100"> 
+                                        <!--<="" class="btn btn-primary btn-sm">Take a look-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="thumbnail">
+                                <div class="caption clearfix">
+                                    <div class="pull-left">
+                                        <b>I am <b>not</a> willing to pay more than $500 for the software.</b>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input id="money500" type="checkbox"
+                                        value="money500"> 
+                                        <!--<="" class="btn btn-primary btn-sm">Take a look-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </form>
-            </div>
-          <div class="buttongroup">
-            <button class="btn btn-default back" id="button1back" name="backnext1"
-            type="button">Back</button>
+            <div class="buttongroup">
             <button class="btn btn-default next" id="button1" name="backnext1"
             type="button">Next</button>
           </div>
+            </div>
 
         </section>
         <section id="gallery2" style="display:none">
@@ -431,7 +307,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
                         <img id="img2" src=
-                            "http://www.10ravens.com/files/product/1/1/2/preview.jpg">
+                            "http://www.10ravens.com/files/product/1/1/2/preview.jpg"/>
                            <div class="caption clearfix">
                                 <div class="pull-left">
                                     <b>My model has curved surfaces or organic shapes such as a sculpture, person, animal, or plants.</b>
@@ -455,7 +331,8 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
                        <img id="img3" src=
-                          "http://download.autodesk.com/global/docs/maya2014/en_us/images/GUID-F60A5CAC-898C-491F-8F7B-3BEECBA7E8DF-low.png">
+                          "http://download.autodesk.com/global/docs/maya2014/en_us/images/GUID-F60A5CAC-898C-491F-8F7B-3BEECBA7E8DF-low.png"/>
+                        <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>If my model has curved surfaces,
                                   they need to look very smooth. For this, I will probably need to use <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="NURBS" data-content="stands for Non-uniform rational B-spline. It's a mathematical model for representing curves and surfaces. They can be edited with control points (if you are familiar with 2D graphics, this is the 3D equivalent of the bezier tool). In other words, your model will be 'mathematically' smooth.">NURBS surfaces</a></b>
@@ -475,13 +352,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
             <!-- ROW -->
             <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
                        <img id="img1" src=
-                        "https://worldorigin.files.wordpress.com/2012/06/nurbs_poly_3.jpg">
+                        "https://worldorigin.files.wordpress.com/2012/06/nurbs_poly_3.jpg"/>
                         <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>If my model has curved or smooth surfaces,
@@ -740,7 +618,7 @@
 
         <section id="gallery3" style="display:none">
             <div class="container">
-                <form action="./quiz3.html" class="form-horizontal" id="form3"
+                <form class="form-horizontal" id="form3"
                 name="form3" onsubmit="return handleFormSubmit()">
                     <p class="lead">I am interested in or have a task that
                     requires the following (check all that apply):</p>
@@ -777,16 +655,14 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="thumbnail">
                                 <img id="img2" src=
-                                "http://3dprint.com/wp-content/uploads/2014/09/s4.png">
+                                "http://www.esri.com/~/media/Images/Content/Software/arcgis/arcgis-for-desktop/desktop-new/features-startgeocoding">
                                 <div class="caption clearfix">
                                     <div class="pull-left">
-                                        <b>I know that my data is in terms of
-                                        voxels (if you're not sure, don't check
-                                        this).</b>
+                                        <b>My data is geographical. For example, terrain, weather, population, satellite, etc.</b>
                                     </div>
                                 <div class="pull-right">
                                     <input id="checkbox1" type="checkbox"
-                                    value="voxelimport"><br>
+                                    value="geo"><br>
                                         <label><input name="q18" type="radio"
                                         value="nice"> Not Important</label>
                                         <label><input name="q18" type="radio"
@@ -827,9 +703,7 @@
                     <div class="row gallery effect-5">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="thumbnail">
-                                <a href=
-                                "http://theinspirationgrid.com/wp-content/uploads/2013/05/Tim-Reynolds-3D-Low-Polygon-09.jpg">
-                                <img id="img1" src="../images/stairs.jpg">
+                                <img id="img1" src="http://geology.wlu.edu/connors/primers/Surfaces_and_Grids_in_Matlab/msg4.jpg">
                                 <div class="caption clearfix">
                                     <div class="pull-left">
                                         <b>Even if I'm not sure how the data is
@@ -878,7 +752,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="thumbnail">
-                                ="" <img id="img3" src=
+                                <img id="img3" src=
                                 "http://www.doka.ch/3Dscatterplot.jpg">
                                 <div class="caption clearfix">
                                     <div class="pull-left">
@@ -901,9 +775,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div><!-- row 3 -->
+            </div>
+            <!-- row 3 -->
             <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
@@ -932,6 +805,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
+                        <img src="https://www.tinkercad.com/img/redesign/tinkercad-broweser-based-3d-design-app-shapes.png">
                         <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>I am a beginner and/or don't have time to
@@ -981,7 +855,7 @@
             <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
-                        <img id="img1" src="">
+                        <img id="img1" src="http://www.volumesoffun.com/downloads/screenshots/C4UE4_2.png">
                         <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>My data corresponds to an object, scene,
@@ -1007,10 +881,10 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
-                        <img id="img2" src="../images/flat_house.png">
+                        <img id="img2" src="http://newshour-tc.pbs.org/newshour/wp-content/uploads/2015/03/coding.jpg">
                         <div class="caption clearfix">
                             <div class="pull-left">
-                                <b>I know at least a little bit about coding and am able to write small mathematical programs. I would not mind writing a little bit of code to open or edit my data.</b>
+                                <b>I know at least a little bit about coding and am able to write small mathematical programs or would be willing to learn. I would not mind writing a little bit of code to open or edit my data.</b>
                             </div>
                              <div class="pull-right">
                                     <input id="checkbox1" type="checkbox"
@@ -1034,7 +908,7 @@
                         <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>My data will look like a <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Height Field" data-content="(or height map) is an image used to store values, such as surface elevation data, for display in 3D.">height field</a> or
-                                correspond to something that looks like a heigh
+                                correspond to something that looks like a height
                                 field. For example, my data is of terrain, tops
                                 of buildings, or can be represented as an
                                 function of 2 variables.</b>
@@ -1058,11 +932,11 @@
             <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
-                        <img id="img1" src="">
+                        <img id="img1" src="http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/40367/versions/3/screenshot.png">
                         <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>My data is in more than 3-dimensions (4D,
-                                5D, etc.).</b>
+                                5D, etc.). For example, I may need to view it in 3D with color as the 4th dimension.</b>
                             </div>
                              <div class="pull-right">
                                     <input id="checkbox1" type="checkbox"
@@ -1079,51 +953,62 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
-                        <img id="img2" src="../images/hands.jpg">
+                        <img id="img3" src=
+                        "https://indranilsinharoy.files.wordpress.com/2013/01/stanforddragon_polymesh.png?w=640&h=454">
                         <div class="caption clearfix">
                             <div class="pull-left">
-                                <b>I know my data is scattered. My data is
-                                non-uniform, and not very concentrated.</b>
+                                <b>My data is very large. I have over (possibly
+                                well over) thousand data points or polygons. If
+                                I have just a single or few models in a scene,
+                                those models are very detailed so they probably
+                                use a lot of polygons or curves to describe
+                                them.</b>
                             </div>
                              <div class="pull-right">
                                     <input id="checkbox1" type="checkbox"
-                                    value="scattered"><br>
-                                        <label><input name="q29" type="radio"
+                                    value="large"><br>
+                                        <label><input name="q34" type="radio"
                                         value="nice"> Not Important</label>
-                                        <label><input name="q29" type="radio"
+                                        <label><input name="q34" type="radio"
                                         value="somewhat">  Somewhat Important</label>
-                                        <label><input name="q29" type="radio"
+                                        <label><input name="q34" type="radio"
                                         value="very">  Very Important</label>
-                                        <label><input name="q29" type="radio"
+                                        <label><input name="q34" type="radio"
                                         value="essential"> Extremely Necessary</label>
                                     </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
-                       <img id="img3" src="../images/bump_map.jpg">
+                        <img id="img3" src=
+                        "https://i.vimeocdn.com/video/219015988_640.jpg">
                         <div class="caption clearfix">
                             <div class="pull-left">
-                                <b>I know my data is uniform.</b>
+                                <b>I know I need to import <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Voxel" data-content="represents a value in a 3D grid (basically, a 3D version of a pixel). Voxels are frequently used in the visualization and analysis of medical and scientific data.">voxel data</a>, which is
+                                data in the form of an image stack. This is
+                                common in MRI scans and other medical
+                                imaging.</b>
                             </div>
                              <div class="pull-right">
                                     <input id="checkbox1" type="checkbox"
-                                    value="uniform"><br>
-                                        <label><input name="q30" type="radio"
+                                    value="voxelimport;imagestack"><br>
+                                        <label><input name="q33" type="radio"
                                         value="nice"> Not Important</label>
-                                        <label><input name="q30" type="radio"
+                                        <label><input name="q33" type="radio"
                                         value="somewhat">  Somewhat Important</label>
-                                        <label><input name="q30" type="radio"
+                                        <label><input name="q33" type="radio"
                                         value="very">  Very Important</label>
-                                        <label><input name="q30" type="radio"
+                                        <label><input name="q33" type="radio"
                                         value="essential"> Extremely Necessary</label>
                                     </div>
                         </div>
                     </div>
                 </div>
+
+
             </div><!-- row 6 -->
             <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -1178,64 +1063,37 @@
                                     </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="thumbnail">
-                        <img id="img3" src=
-                        "http://www.everygraph.com/product/voxel3d/pic/dog.png">
-                        <div class="caption clearfix">
-                            <div class="pull-left">
-                                <b>I know I need to import <a href="javascript:void(0)" data-toggle="popover" data-placement="top" title="Voxel" data-content="represents a value in a 3D grid (basically, a 3D version of a pixel). Voxels are frequently used in the visualization and analysis of medical and scientific data.">voxel data</a>, which is
-                                data in the form of an image stack. This is
-                                common in MRI scans and other medical
-                                imaging.</b>
-                            </div>
-                             <div class="pull-right">
-                                    <input id="checkbox1" type="checkbox"
-                                    value="voxelimport;imagestack"><br>
-                                        <label><input name="q33" type="radio"
-                                        value="nice"> Not Important</label>
-                                        <label><input name="q33" type="radio"
-                                        value="somewhat">  Somewhat Important</label>
-                                        <label><input name="q33" type="radio"
-                                        value="very">  Very Important</label>
-                                        <label><input name="q33" type="radio"
-                                        value="essential"> Extremely Necessary</label>
-                                    </div>
-                        </div>
-                    </div>
-                </div>
             </div><!-- row 6 -->
-            <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="thumbnail">
-                        <img id="img3" src=
-                        "https://indranilsinharoy.files.wordpress.com/2013/01/stanforddragon_polymesh.png?w=640&h=454">
+                    <div class="thumbnail" id="dataquestion">
                         <div class="caption clearfix">
                             <div class="pull-left">
-                                <b>My data is very large. I have over (possibly
-                                well over) thousand data points or polygons. If
-                                I have just a single or few models in a scene,
-                                those models are very detailed so they probably
-                                use a lot of polygons or curves to describe
-                                them.</b>
+                                <b>I have na idea of where my data is coming from (check all that apply):</b>
                             </div>
-                             <div class="pull-right">
-                                    <input id="checkbox1" type="checkbox"
-                                    value="large"><br>
-                                        <label><input name="q34" type="radio"
-                                        value="nice"> Not Important</label>
-                                        <label><input name="q34" type="radio"
-                                        value="somewhat">  Somewhat Important</label>
-                                        <label><input name="q34" type="radio"
-                                        value="very">  Very Important</label>
-                                        <label><input name="q34" type="radio"
-                                        value="essential"> Extremely Necessary</label>
-                                    </div>
-                        </div>
+                             <div class="pull-right dataquestion">
+                                    A file <input class="dataq" type="checkbox"
+                                    value="file"><br>
+                                    A database or multiple files<input class="dataq" id="checkbox1" type="checkbox"
+                                    value="database"><br>
+                                    Someone (or myself) created it.<input class="dataq" id="checkbox1" type="checkbox"
+                                    value="created"><br>
+                                    MRI scan<input class="dataq" type="checkbox"
+                                    value="mri"><br>
+                                    Scanner<input class="dataq" type="checkbox"
+                                    value="scan"><br>
+                                    Satellite<input class="dataq" type="checkbox"
+                                    value="satellite"><br>
+                                    Internet<input class="dataq" type="checkbox"
+                                    value="internet"><br>
+                                    Camera<input class="dataq" type="checkbox"
+                                    value="camera"><br>
+                                    Other <input class="dataq" type="checkbox"
+                                    value="other">
+                                    Explain further: <input type="textbox" value="othertext"><br>
+                                </div>
+                            </div>
                     </div>
                 </div>
-
             </div>
 
           <div class="buttongroup">
@@ -1247,7 +1105,7 @@
         </section>
         <section id="gallery4" style="display:none">
             <div class="container">
-                <form action="./quiz3.html" class="form-horizontal" id="form3"
+                <form class="form-horizontal" id="form3"
                 name="form3" onsubmit="return handleFormSubmit()">
                     <p class="lead">I am interested in or have a task that
                     requires the following (check all that apply):</p>
@@ -1255,7 +1113,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="thumbnail">
                                 <img id="img1" src=
-                                ".http://www.cgarchitect.com/content/posts/legacy/TB/dec1.jpg">
+                                "http://img05.deviantart.net/9632/i/2012/168/4/f/lamborghini_gallardo_3d_render_by_jonaddison-d4m1wuq.jpg">
                                 <div class="caption clearfix">
                                     <div class="pull-left">
                                         <b>I have a model or environment that
@@ -1415,8 +1273,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
             </div><!-- row 3 -->
             <div class="row gallery effect-5">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -1613,7 +1469,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
-                        <img id="img2" src="../images/hands.jpg">
+                        <img id="img2" src="http://www.everygraph.com/product/voxel3d/pic/dog.png">
                         <div class="caption clearfix">
                             <div class="pull-left">
                                 <b>I don't have time or don't want to learn
@@ -1714,6 +1570,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="thumbnail">
                         <img id="img3" src=
@@ -1741,16 +1598,53 @@
                     </div>
                 </div>
           </div>
-
+<!--
+          <div class="row gallery effect-5">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="thumbnail">
+                        <img id="img1" src=
+                        "http://vis.berkeley.edu/~joshea/images/monte/noantialias.png">
+                        <div class="caption clearfix">
+                            <div class="pull-left">
+                                <b>I know where my data is coming from (check all that apply):</b>
+                            </div>
+                             <div class="pull-right">
+                                    A file <input id="checkbox1" type="checkbox"
+                                    value="file"><br>
+                                    A database or multiple files<input id="checkbox1" type="checkbox"
+                                    value="database"><br>
+                                    Someone (or myself) created it from scratch<input id="checkbox1" type="checkbox"
+                                    value="scratch"><br>
+                                    MRI scan<input id="checkbox1" type="checkbox"
+                                    value="scratch"><br>
+                                    Scanner<input id="checkbox1" type="checkbox"
+                                    value="scratch"><br>
+                                    Satellite<input id="checkbox1" type="checkbox"
+                                    value="scratch"><br>
+                                    Internet<input id="checkbox1" type="checkbox"
+                                    value="scratch"><br>
+                                    Other <input id="checkbox1" type="checkbox"
+                                    value="scratch">
+                                    Explain further: <input type="textbox"><br>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+-->
           <div class="buttongroup"><button class="btn btn-default back" id="button4back" name="backnext3"
             type="button">Back</button>
             </div><button class="btn btn-default next" id="button4" name="submit"
-            type="submit">See Results!</button></div>
+            type="submit">See Results!</button></div></div>
             <fieldset></fieldset>
         </section>
     </div><!-- fix unmatched link tag-->
     <section id="results" style="display:none; padding: 5%">
         <h2>Results</h2>
+        <div id="inner"></div>
+        <div class="buttongroup"><button class="btn btn-default back" id="button5back" 
+            type="button">Back</button>
+            <button class="btn btn-default next" id="button5" name="submit"
+            type="submit">Start Over</button></div></div>
     </section>
 </body>
 </html>
@@ -1795,6 +1689,7 @@ $("#button1").click(function(e) {
   $("#gallery2").show();
   $("#results").hide();
   window.scrollTo(0, 0);
+  console.log("REVELEVANT " + relevant);
   if (!relevant[0]) {
     $("#button2").click();
   }
@@ -1837,8 +1732,68 @@ $("#button4").click(function(e) {
   window.scrollTo(0, 0);
 });
 
+
+$("#button2back").click(function(e) {
+  e.preventDefault();
+  $("#gallery").show();
+  $("#gallery2").hide();
+  $("#gallery4").hide();
+  $("#results").hide();
+  $("#gallery3").hide();
+  window.scrollTo(0, 0);
+});
+
+$("#button3back").click(function(e) {
+  e.preventDefault();
+  $("#gallery").hide();
+  $("#gallery3").hide();
+  $("#gallery4").hide();
+  $("#gallery2").show();
+  $("#results").hide();
+  if (!relevant[0]) {
+    $("#button2back").click();
+  }
+  window.scrollTo(0, 0);
+});
+
+$("#button4back").click(function(e) {
+  e.preventDefault();
+  $("#gallery").hide();
+  $("#gallery3").show();
+  $("#gallery4").hide()
+  $("#gallery2").hide();
+  $("#results").hide();
+  if (!relevant[1]) {
+    $("#button3back").click();
+  }
+  window.scrollTo(0, 0);
+});
+
+$("#button5back").click(function(e) {
+  e.preventDefault();
+  $("#gallery").hide();
+  $("#gallery3").hide();
+  $("#gallery4").show()
+  $("#gallery2").hide();
+  $("#results").hide();
+  if (!relevant[2]) {
+    $("#button4back").click();
+  }
+  window.scrollTo(0, 0);
+});
+
+$("#button5").click(function(e){
+    location.reload();
+});
+
+
  $(".thumbnail input:radio").click(function(e) {
         e.stopPropagation();
+   });
+
+ $("#dataquestion").click(function(e) {
+        e.stopPropagation();
+        $(this).addClass("highlighted");
    });
 
   $("a[data-toggle=popover]").click(function(e) {
@@ -1851,27 +1806,24 @@ $(".thumbnail").click(function() {
  // var isChecked = $(this).find(":input:checkbox").checked
  console.log(this);
  if ($(this).type == "radio") return;
+ if ($(this).is("#dataquestion")) return;
   if ($(this).hasClass("highlighted")) {
     console.log("had highlighted. remove class");
     $(this).removeClass("highlighted");
-      $(this).find(":input:checkbox").prop('checked', false);
+    $(this).find(".question").hide();
+    $(this).find(".dataquestion").hide();
+    $(this).find(".dataquestion").find("checkbox").hide();
+    $(this).find(":input:checkbox").prop('checked', false);
+
   } else {
     console.log("not highlighted, add higihlighted");
     $(this).addClass("highlighted");
-      $(this).find(":input:checkbox").prop('checked', true);
+    $(this).find(".question").show();
+    $(this).find(".dataquestion").show();
+    $(this).find(".dataquestion").find(":input:checkbox").show();
+    $(this).find(":input:checkbox").prop('checked', true);
   }
 });
-
-     $(function() {
-            $(".meter > span").each(function() {
-                $(this)
-                    .data("origWidth", $(this).width())
-                    .width(0)
-                    .animate({
-                        width: $(this).data("origWidth")
-                    }, 1200);
-            });
-        });
 
 // TODO: don't hard code this
 /*document.getElementById('img1').onclick = function () //attach to onclick

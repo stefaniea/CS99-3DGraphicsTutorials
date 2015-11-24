@@ -95,6 +95,7 @@ var results = [];
         "bumpmap": "yes",
         "normalmap": "yes",
         "digitalpaint": "no",
+        "pointcloud": "yes",
         "visualize": "yes",
         "uvmap": "yes"
     },
@@ -200,7 +201,7 @@ var results = [];
         "name": "Maya",
         "company": "Autodesk",
         "description": "3D Computer graphics software. Features include modelling, rigging, animation, UV Mapping, texturing, and compatibility with several renderers.",
-        "price": "$1470/year",
+        "price": 1470,
         "studentprice": 0,
         "purpose": "Comprehensive 3D animation, modelling, rigging, rendering",
         "large": "yes",
@@ -243,7 +244,7 @@ var results = [];
         "name": "3DS Max",
         "company": "Autodesk",
         "description": "3D Computer graphics software. Features include modelling, rigging, animation, UV Mapping, texturing, and compatibility with several renderers.",
-        "price": "$185/month",
+        "price": 185,
         "studentprice": 0,
         "purpose": "3D modeling, animation, and rendering",
         "large": "yes",
@@ -274,7 +275,7 @@ var results = [];
         "name": "Mudbox",
         "company": "Autodesk",
         "description": "Easy to use software for 3D sculpting. Easily compatible with Maya.",
-        "price": "$10/month",
+        "price": 10,
         "studentprice": 0,
         "purpose": "Digital sculpting and painting",
         "edit": "yes",
@@ -308,7 +309,7 @@ var results = [];
         "name": "AutoCAD",
         "company": "Autodesk",
         "description": "Architecture, engineering, and construction professionals' 2D and 3D drawings software.",
-        "price": "$210/month",
+        "price": 210,
         "studentprice": 0,
         "purpose": "Architecture and Design",
         "edit": "yes",
@@ -332,65 +333,13 @@ var results = [];
         "name": "AutoCADLT",
         "company": "Autodesk",
         "description": "Architecture, engineering, and construction 2D and 3D drafting software.",
-        "price": "$360/year",
+        "price": 360,
         "purpose": "Drafting Archiecture and Design",
         "edit": "yes",
         "windows": "yes",
         "mac": "yes",
         "precise": "yes",
         "linux": "no"
-    },
-    {
-        "name": "Building Design Suite",
-        "company": "Autodesk",
-        "description": "sample description",
-        "price": "$2310/year"
-    },
-    {
-        "name": "Product Design Suite",
-        "company": "Autodesk",
-        "description": "sample description",
-        "price": "$290/month"
-    },
-    {
-        "name": "Factory Design Suite",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "Formit 360",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "HSMWorks",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "Inventor HSM",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "Stringray",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "Revit",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "RevitLT",
-        "company": "Autodesk",
-        "description": "sample description"
-    },
-    {
-        "name": "Navisworks Simulate",
-        "company": "Autodesk",
-        "description": "sample description"
     },
     {
         "name": "ANTz",
@@ -410,13 +359,14 @@ var results = [];
         "purpose": "3D data visualization",
         "edit": "no",
         "voxeledit": "yes",
-        "visualize": "yes"
+        "visualize": "yes",
+        "dimension": "yes"
     },
     {
         "name": "qubicle",
         "company": "Minddesk",
         "description": "sample description",
-        "price": "$15-160",
+        "price": 78,
         "studentprice": "$15-161",
         "purpose": "voxel editor",
         "edit": "yes",
@@ -588,7 +538,7 @@ var results = [];
         "name": "3DCoat",
         "company": "Pilgway",
         "description": "sample description",
-        "price": "$379-568",
+        "price": 568,
         "studentprice": 99,
         "edit": "yes",
         "windows": "yes",
@@ -658,7 +608,8 @@ var results = [];
         "rastermapimport": "no",
         "uvmap": "no",
         "retopology": "no",
-        "analyzetools": "yes"
+        "analyzetools": "yes",
+        "geo": "yes"
     },
     {
         "name": "Aladdin4D",
@@ -698,139 +649,222 @@ var results = [];
         "rastermapimport": "no"
     },
     {
-        "name": "Renderers",
-        "company": "easily compatible with",
-        "price": "physically based lighting",
-        "studentprice": "subsurface scattering",
-        "purpose": "metals",
-        "windows": "glass",
-        "mac": "variety of materials",
-        "linux": "textures",
-        "polygon": "normal mapping",
-        "rigging": "procedural textures",
-        "animation": "Price",
-        "simulations": "Student Price",
-        "rendering": "Non-commercial price",
-        "game": "caustics",
-        "sculpt": "viewport rendering",
-        "textures": "nodes"
+        "name": "SolidWorks",
+        "company": "SolidWorks",
+        "description": "Popular CAD (computer aided design) software among companies and engineers for 3D design. SolidWorks products include 3D CAD, Visualization, and Simulation software.",
+        "studentprice": 150,
+        "purpose": "modeling, 3d design",
+        "edit": "yes",
+        "windows": "yes",
+        "mac": "no",
+        "linux": "no",
+        "polygon": "yes",
+        "rigging": "no",
+        "animation": "no",
+        "simulations": "no",
+        "basiclight": "yes",
+        "complexlight": "no",
+        "rendering": "yes",
+        "game": "no",
+        "sculpt": "no",
+        "textures": "no",
+        "realisticmaterials": "yes",
+        "curve": "yes",
+        "smooth": "yes",
+        "tube": "yes",
+        "bumpmap": "no",
+        "normalmap": "no",
+        "digitalpaint": "no",
+        "pbr": "no",
+        "pointcloud": "no",
+        "voxeledit": "no",
+        "visualize": "no",
+        "heightfield": "no",
+        "voxelimport": "no",
+        "export3dprint": "yes",
+        "vectormapimport": "no",
+        "rastermapimport": "no",
+        "uvmap": "no",
+        "retopology": "no",
+        "analyzetools": "no",
+        "geo": "no"
     },
     {
-        "name": "VRay",
-        "company": "rhino, maya",
-        "price": "yes",
-        "studentprice": "yes",
-        "purpose": "yes",
+        "name": "Mathematica",
+        "company": "Wolfram",
+        "description": "Technical computing software",
+        "price": 300,
+        "studentprice": 215,
+        "purpose": "computing, importing",
+        "large": "no",
+        "edit": "no",
+        "windows": "yes",
+        "mac": "yes",
+        "linux": "yes",
+        "polygon": "no",
+        "rigging": "no",
+        "animation": "no",
+        "simulations": "no",
+        "basiclight": "no",
+        "complexlight": "no",
+        "rendering": "no",
+        "game": "no",
+        "sculpt": "no",
+        "textures": "no",
+        "realisticmaterials": "no",
+        "curve": "yes",
+        "smooth": "yes",
+        "tube": "no",
+        "bumpmap": "no",
+        "normalmap": "no",
+        "compatibleWith": "no",
+        "digitalpaint": "no",
+        "pbr": "no",
+        "easy": "no",
+        "pointcloud": "no",
+        "voxeledit": "no",
+        "visualize": "yes",
+        "heightfield": "yes",
+        "voxelimport": "no",
+        "export3dprint": "no",
+        "vectormapimport": "no",
+        "rastermapimport": "no",
+        "uvmap": "no",
+        "retopology": "no",
+        "analyzetools": "yes",
+        "code": "yes",
+        "geo": "no"
+    },
+    {
+        "name": "QVox",
+        "company": "Greyc",
+        "description": "Volumetric data visualizer and editor",
+        "purpose": "import, export, visualize",
+        "edit": "yes",
         "windows": "yes",
         "mac": "yes",
         "linux": "yes",
         "polygon": "yes",
-        "rigging": "yes"
+        "rigging": "no",
+        "animation": "no",
+        "simulations": "no",
+        "basiclight": "no",
+        "complexlight": "no",
+        "rendering": "no",
+        "game": "no",
+        "sculpt": "no",
+        "textures": "no",
+        "realisticmaterials": "no",
+        "curve": "no",
+        "smooth": "no",
+        "tube": "no",
+        "bumpmap": "no",
+        "normalmap": "no",
+        "digitalpaint": "no",
+        "pbr": "no",
+        "pointcloud": "no",
+        "voxeledit": "yes",
+        "visualize": "yes",
+        "voxelimport": "yes",
+        "export3dprint": "no",
+        "analyzetools": "no",
+        "code": "no",
+        "dimension": "yes",
+        "geo": "no"
     },
     {
-        "name": "RenderMan",
-        "company": "maya, ",
-        "price": "yes",
-        "studentprice": "yes",
-        "purpose": "yes",
+        "name": "ArcGIS",
+        "company": "esri",
+        "description": "Application for creating and working with spatial data on your desktop. It provides tools to visualize, analyze, compile, and share your data, in both 2D and 3D environments.",
+        "price": 1500,
+        "edit": "yes",
         "windows": "yes",
         "mac": "yes",
         "linux": "yes",
-        "polygon": "yes",
-        "rigging": "yes"
+        "polygon": "no",
+        "rigging": "no",
+        "animation": "no",
+        "simulations": "no",
+        "basiclight": "no",
+        "complexlight": "no",
+        "rendering": "no",
+        "game": "no",
+        "sculpt": "no",
+        "textures": "no",
+        "realisticmaterials": "no",
+        "curve": "no",
+        "smooth": "no",
+        "tube": "no",
+        "bumpmap": "no",
+        "normalmap": "no",
+        "compatibleWith": "autoCAD",
+        "digitalpaint": "no",
+        "pbr": "no",
+        "heightfield": "yes",
+        "voxelimport": "no",
+        "export3dprint": "no",
+        "uvmap": "no",
+        "retopology": "no",
+        "analyzetools": "yes",
+        "code": "no",
+        "geo": "yes"
     },
     {
-        "name": "Cycles",
-        "company": "blender,",
-        "price": "yes"
+        "name": "TinkerCAD",
+        "description": "Easy, web-based application for creating 3D models. Features include editing shapes, import/export geometry, and 3D printing.",
+        "price": 0,
+        "studentprice": 0,
+        "purpose": "simple CAD",
+        "large": "no",
+        "edit": "yes",
+        "windows": "yes",
+        "mac": "yes",
+        "precise": "no",
+        "linux": "yes"
     },
     {
-        "name": "Mitsuba",
-        "company": "blender,",
-        "price": "yes"
-    },
-    {
-        "name": "Lux Renderer",
-        "company": "blender,"
-    },
-    {
-        "name": "Aqsis",
-        "company": "blender,"
-    },
-    {
-        "name": "Persistence of Vision",
-        "company": "blender,"
-    },
-    {
-        "name": "Blender Internal Renderer",
-        "company": "blender,"
-    },
-    {
-        "name": "Maya Software",
-        "company": "maya, ",
-        "price": "no"
-    },
-    {
-        "name": "Mental Ray",
-        "company": "maya, "
-    },
-    {
-        "name": "Holomatix Rendition",
-        "company": "maya, "
-    },
-    {
-        "name": "FurryBall",
-        "company": "maya, "
-    },
-    {
-        "name": "Octane Render",
-        "company": "maya, blender",
-        "price": "yes"
-    },
-    {
-        "name": "3Delight ",
-        "company": "maya,"
-    },
-    {
-        "name": "Maxwell",
-        "company": "blender,"
-    },
-    {
-        "name": "Simulation plugins",
-        "company": "type of simulation",
-        "price": "easily compatible with",
-        "studentprice": "price",
-        "purpose": "student price"
-    },
-    {
-        "name": "RealFlow",
-        "company": "fluid",
-        "price": "maya,"
-    },
-    {
-        "name": "Glu3d",
-        "company": "fluid",
-        "price": "maya,"
-    },
-    {
-        "name": "Miarmy",
-        "company": "dynamics, crowd",
-        "price": "maya,"
-    },
-    {
-        "name": "Dynamica",
-        "company": "dynamics",
-        "price": "maya,"
-    },
-    {
-        "name": "Pulldownit",
-        "company": "dynamics",
-        "price": "maya,"
-    },
-    {
-        "name": "Golaem Crowd",
-        "company": "crowd",
-        "price": "maya,"
+        "name": "Voxelizer",
+        "description": "Easy to use software to import and strengthen voxel data and export to 3D print.",
+        "price": 0,
+        "studentprice": 0,
+        "purpose": "voxel import, print",
+        "windows": "yes",
+        "mac": "yes",
+        "linux": "yes",
+        "polygon": "no",
+        "rigging": "no",
+        "animation": "no",
+        "simulations": "no",
+        "basiclight": "no",
+        "complexlight": "no",
+        "rendering": "no",
+        "game": "no",
+        "sculpt": "no",
+        "textures": "no",
+        "realisticmaterials": "no",
+        "curve": "no",
+        "smooth": "no",
+        "tube": "no",
+        "bumpmap": "no",
+        "normalmap": "no",
+        "compatibleWith": "no",
+        "digitalpaint": "no",
+        "pbr": "no",
+        "easy": "yes",
+        "pointcloud": "no",
+        "voxeledit": "yes",
+        "visualize": "no",
+        "heightfield": "no",
+        "voxelimport": "yes",
+        "export3dprint": "yes",
+        "vectormapimport": "no",
+        "rastermapimport": "no",
+        "uvmap": "no",
+        "retopology": "no",
+        "analyzetools": "no",
+        "code": "no",
+        "dimension": "no",
+        "geo": "no"
     }
 ];
 	results = scoreData(answerMap, data);
@@ -853,30 +887,52 @@ var results = [];
  	apps = [];
  	var i = 0;
  	for (a of data) {
+        console.log("scoring " + a.name);
         a.matches = [];
  		var os = false;
  		a.score = 0;
- 		console.log("a of data " + a);
  		for (prop in answerMap) {
  			//console.log("prop in answerMap" + prop);
  			if (!answerMap.hasOwnProperty(prop)) {
         	//The current property is not a direct property of p
         	continue;
-        }
-        else if (a[prop] != null && a[prop] == "yes") {
+            }
+        if (a[prop] != null && a[prop] == "yes") {
+            console.log("answermap["+prop+"] is " + answerMap[prop]);
+            console.log("a[" + prop + "] is " + a[prop]);
         	a.score = a.score + answerMap[prop];
         	if (!os && (prop == "mac" || prop == "linux" || prop == "windows")) {
         		a.score += 10; // add a large number because operating system is important
         		os = true; // do this only once though.
                 //a.matches.push("operating system");
 
-        	} else {
+                }
+        	 else {
                 var match = wordMap[prop];
                 if (match == null) match = prop;
                 a.matches.push(match);
-                //console.log("PUSHING TO MATCHES " + wordMap[prop] + " from " + prop);
+                console.log("PUSHING TO MATCHES " + wordMap[prop] + " from " + prop);
             }
         }
+
+            if (prop == "money0") {
+                console.log("money0");
+                if (a["price"] != null && parseInt(a["price"]) <= 0) {
+                    a.score+=5;
+                    a.matches.push("price is $0");
+                }
+            } else if (prop == "money100") {
+                if (a["price"] != null && parseInt(a["price"]) <= 100) {
+                    a.score+=5;
+                    a.matches.push("price less than $100");
+                }
+            } else if (prop == "money500") {
+                if (a["price"] != null && parseInt(a["price"]) <= 500) {
+                    a.score+=5;
+                    a.matches.push("price less than $500");
+                }
+            }
+           
     }
     apps[i] = a;
     i++;

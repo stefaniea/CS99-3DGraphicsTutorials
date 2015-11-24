@@ -16,7 +16,9 @@ var wordMap = {"studentprice" : "student price", "polygon" : "handles polygon ob
 "vectormapimport" : "vector map import", "rastermapimport" : "raster map import",
  "uvmap" : "uv mapping", "analyzetools" : "tools for analytics", 
  "geo" : "handles geographical data", "windows" : "runs on Windows", "mac" : "runs on Mac", "linux" : "runs on Linux",
- "animation" : "animation" };
+ "animation" : "animation", "large" : "handles large data sets", 
+ "modelstart" : "modelling", "importstart" : "importing", "renderstart" : "rendering",
+ "dimension" : "higher than 3-dimensional viewing", "pointcloud" : "point cloud import/viewing" };
 
 // Splits string into array by semi color. e.g. abc;de;f into array {abc, de, f}
 function splitBySemiColon(vals) {
@@ -107,26 +109,18 @@ function normalizeResults(results) {
 }
 
 // Given an array, output a English string list of it (i.e. [a, b, c] -> a, b, and c)
-function matchesToString(r_matches) {
+function matchesToList(r_matches) {
+    var matches = "<ul class='matches'>";
 	if (r_matches == null) {
-		return "nothing :("
-	}
-	var matches = "";
-	if (r_matches.length == 1) {
-		return r_matches[0];
-	} else if (r_matches.length == 2) {
-		return r_matches[0] + " and " + r_matches[1];
+		return matches + "<li>nothing :(</li></ul>";
 	}
 
 	var i = 0;
 	for (m of r_matches) {
-		if (i == r_matches.length - 1) {
-			matches = matches + "and " + r_matches[i];
-		} else {
-			matches = matches + r_matches[i] + ",";
-			i = i + 1;
-		}
+			matches = matches + '<li>' + r_matches[i] + '</li>';
+			i++;
 	}
+	matches = matches + "</ul>";
 	return matches;
 }
 
@@ -148,7 +142,9 @@ function displayResults(results) {
 			section.append(div);
 		} else if (i < 6) {
 			div = document.createElement('div');
+			$(div).addClass('result');
 			div.innerHTML = '<h3>'+r.name + '</h3><p>' + r.description+'</p><p>Score: '+ r.score +'%</p>' +
+			'<p><b>matches you on the following features: ' + matchesToList(r.matches) + '</b></p>' +
 						'<div class="meter">' + '<span style="width: '+ r.score +'%"></span></div>';
 			section.append(div);
 		}
