@@ -259,17 +259,19 @@ var global_title = "";
 var global_sequence;
 var global_max_frame = 51;
 var global_fps = 25;
+var global_animating = false;
 
 var frame = 0;
 
 function next_frame() {
-
+    global_animating = true;
   frame += 1;
 
   // start animation again from the start if last frame reached (optional)
-  if ( frame == global_max_frame ) {
+  if ( frame == global_max_frame) {
     global_imgdiv.attr("src", "samplers/" + global_title + ".bmp");
     frame = 0;
+    global_animating = false;
     return;
   }
     var src = "SamplersAnimation/" + global_title + "" + global_sequence[frame] + ".bmp";
@@ -278,11 +280,14 @@ function next_frame() {
 
   // call the function again
   setTimeout( next_frame, 1000 / global_fps ); // change 25 with your desired FPS value.
-
 }
 
     function animateSampler(title, imgdiv, sequence, maxFrame, fps) {
         console.log("grid sequence " + sequence);
+        if (global_animating) {
+            // wait!
+            return;
+        }
         global_imgdiv = imgdiv;
         global_title = title;
         global_sequence = sequence;
@@ -316,7 +321,6 @@ function next_frame() {
             $('#image-gallery-image1').attr('src', $sel.data('image').split(";")[0]);
             $('#image-gallery-image2').attr('src', $sel.data('image').split(";")[1]);
             disableButtons(counter, $sel.data('image-id'));
-
 
         }
 
