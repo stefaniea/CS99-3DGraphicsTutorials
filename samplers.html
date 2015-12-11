@@ -43,7 +43,7 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
     <div class="col-lg-12">
                 </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Simple" data-image="samplers/SimpleSampler2D2DSampleGrid.bmp;samplers/SimpleSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Simple sampling. Sample completely random points on an image or area." data-image="samplers/SimpleSampler2D2DSampleGrid.bmp;samplers/SimpleSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Simple</h5>
                 <img class="grid" class="img-responsive" src="samplers/SimpleSampler2D2DSampleGrid.bmp" alt="Simple sampler grid">
                 <img class="checkers" src="samplers/SimpleSampler2DInfiniteCheckers.bmp" alt="Simple sampler infinite checkers">
@@ -66,7 +66,7 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
             </a>
         </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Dart Threshold" data-image="samplers/DartThresholdSampler2D2DSampleGrid.bmp;samplers/DartThresholdSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Dart Threshold (or k-dimensional flat search) is a sampling method that evaluates samples as a higher dimension." data-image="samplers/DartThresholdSampler2D2DSampleGrid.bmp;samplers/DartThresholdSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Dart Threshold</h5>
                 <img class="grid" class="img-responsive" src="samplers/DartThresholdSampler2D2DSampleGrid.bmp" alt="best candidate sampler grid">
                 <img class="checkers" src="samplers/DartThresholdSampler2DInfiniteCheckers.bmp" alt="dart threshold sampler infinite checkers">
@@ -81,7 +81,7 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
     <div class="col-lg-12">
 
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Hammersly" data-image="samplers/HammerslySampler2D2DSampleGrid.bmp;samplers/HammerslySampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Hammersly is a well-distruted sampling method, meaning samples have a uniform distribution and there is some minimum distance between samples. The samples are deterministic (not random) and are based on representing numbers with in prime bases." data-image="samplers/HammerslySampler2D2DSampleGrid.bmp;samplers/HammerslySampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Hammersly</h5>
                 <img class="grid" class="img-responsive" src="samplers/HammerslySampler2D2DSampleGrid.bmp" alt="hammersly sampler grid">
                 <img class="checkers" src="samplers/HammerslySampler2DInfiniteCheckers.bmp" alt="hammersly sampler infinite checkers">
@@ -89,28 +89,29 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
         </div>
     
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Latin Hypercube Sampler" data-image="samplers/LatinHypercubeSampler2D2DSampleGrid.bmp;samplers/LatinHypercubeSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Latin Hypercube is a sampling method that uses higher dimensions. One firsts sets the number of dimensions and for each sample point remember in which row and column the sample point were taken. This method ensure that the random numbers is representative of real variability whereas traditional random sampling is just a bunch of random numbers with no guarantees." data-image="samplers/LatinHypercubeSampler2D2DSampleGrid.bmp;samplers/LatinHypercubeSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Latin Hypercube</h5>
                 <img class="grid" class="img-responsive" src="samplers/LatinHypercubeSampler2D2DSampleGrid.bmp" alt="best candidate sampler grid">
                 <img class="checkers" src="samplers/LatinHypercubeSampler2DInfiniteCheckers.bmp" alt="latin hypercube sampler grid">
             </a>
-
-
         </div>
+
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Van Der Corput Sobol is in the class of Sorbol sequences. It is a low-discrepency sequence, meaning it is well distributed and is often used to replace uniform random sampling." data-image="samplers/VanDerCorputSobolSampler2D2DSampleGrid.bmp;samplers/VanDerCorputSobolSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+                <h5>Van Der Corput Sobol</h5>
+                <img class="grid" class="img-responsive" src="samplers/VanDerCorputSobolSampler2D2DSampleGrid.bmp" alt="hammersly sampler grid">
+                <img class="checkers" src="samplers/VanDerCorputSobolSampler2DInfiniteCheckers.bmp" alt="hammersly sampler infinite checkers">
+            </a>
+        </div>
+
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Halton" data-image="samplers/HaltonSampler2D2DSampleGrid.bmp;samplers/HaltonSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Halton is anatural generalization of the van der Corput sequence to higher dimensions. It uses coprime integers greater than 1. (Coprime means the two numbers' greatest common divisor is 1)" data-image="samplers/HaltonSampler2D2DSampleGrid.bmp;samplers/HaltonSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Halton</h5>
                 <img class="grid" class="img-responsive" src="samplers/HaltonSampler2D2DSampleGrid.bmp" alt="halton sampler grid">
                 <img class="checkers" src="samplers/HaltonSampler2DInfiniteCheckers.bmp" alt="halton sampler infinite checkers">
             </a>
         </div>
- <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="VanDerCorputSobol" data-image="samplers/VanDerCorputSobolSampler2D2DSampleGrid.bmp;samplers/VanDerCorputSobolSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
-                <h5>VanDerCorputSobol</h5>
-                <img class="grid" class="img-responsive" src="samplers/VanDerCorputSobolSampler2D2DSampleGrid.bmp" alt="hammersly sampler grid">
-                <img class="checkers" src="samplers/VanDerCorputSobolSampler2DInfiniteCheckers.bmp" alt="hammersly sampler infinite checkers">
-            </a>
-        </div>
+ 
 </div>
 
 
