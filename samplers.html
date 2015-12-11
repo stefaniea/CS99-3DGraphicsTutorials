@@ -51,7 +51,7 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
         </div>
 
                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Stratified" data-image="samplers/StratifiedSampler2D2DSampleGrid.bmp;samplers/StratifiedSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Stratified sampling (also called jittered sampling) splits up the area to sample into a (n by n) grid. In each box of this grid, you generate a random sample. This reduces clustering that happens if samples were purely random." data-image="samplers/StratifiedSampler2D2DSampleGrid.bmp;samplers/StratifiedSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Stratified</h5>
                 <img class="grid" class="img-responsive" src="samplers/StratifiedSampler2D2DSampleGrid.bmp" alt="latin hypercube sampler grid">
                 <img class="checkers" src="samplers/StratifiedSampler2DInfiniteCheckers.bmp" alt="latin hypercube infinite checkers">
@@ -59,7 +59,7 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
         </div>
     
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="Best Candidate Sampler" data-image="samplers/BestCandidateSampler2D2DSampleGrid.bmp;samplers/BestCandidateSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="The best candidate sampling method tries to create a set of points with the highest minimum distance between any two points. Basically, generate a bunch of 'candidate' points that are uniformly distributed and find the 'best' candidate. i.e. the one with the highest minimum distance to all the points we already have." data-image="samplers/BestCandidateSampler2D2DSampleGrid.bmp;samplers/BestCandidateSampler2DInfiniteCheckers.bmp" data-target="#image-gallery">
                 <h5>Best Candidate</h5>
                 <img class="grid" class="img-responsive" src="samplers/BestCandidateSampler2D2DSampleGrid.bmp" alt="best candidate sampler grid">
                 <img class="checkers" src="samplers/BestCandidateSampler2DInfiniteCheckers.bmp" alt="best candidate sampler grid">
@@ -205,6 +205,93 @@ $(document).keydown(function(e){
      * @param setClickAttr  Sets the attribute for the click handler.
      */
 
+  
+     var gridSequence = (function() {
+        var seq = [];
+        for (var i = 0; i <= 510; i+=10) {
+            seq.push(i);
+        }
+        return seq;
+     })();
+
+     var checkerSequence = (function() {
+        var seq = [];
+        for (var i = 0; i <= 16; i++) {
+            seq.push(i);
+        }
+        return seq;
+     })();
+
+    $(".modal-footer").append("<div style='margin-top: 5%; margin-right: 20%' class='row'><button class='animateleft btn' id='anim' type='button'>Animate Left</button><button class='animateright btn' id='anim' type='button'>Animate Right</button></div>");
+
+    $(".animateleft").click(function() {
+        var imgdiv1 = $("#image-gallery-image1");
+        var imgdiv2 = $("#image-gallery-image2");
+        var img1 = imgdiv1.attr("src");
+        var img2 = imgdiv2.attr("src");
+        var img1Title = img1.split("/")[1].split(".")[0];
+        var img2Title = img2.split("/")[1].split(".")[0];
+        console.log("click play. img1 " + img1Title + " img2 " + img2Title);
+        animateSampler(img1Title, imgdiv1, gridSequence, 51, 20);
+    });
+
+        $(".animateright").click(function() {
+        var imgdiv1 = $("#image-gallery-image1");
+        var imgdiv2 = $("#image-gallery-image2");
+        var img1 = imgdiv1.attr("src");
+        var img2 = imgdiv2.attr("src");
+        var img1Title = img1.split("/")[1].split(".")[0];
+        var img2Title = img2.split("/")[1].split(".")[0];
+        console.log("click play. img1 " + img1Title + " img2 " + img2Title);
+        animateSampler(img2Title, imgdiv2, checkerSequence, 16, 2);
+    });
+
+
+function delayChangeSrc(imgdiv, src) {
+    console.log("change src to " + src);
+    var myAnim = setInterval(function(){
+       imgdiv.attr('src', src);
+    }, 500);
+}
+
+var global_imgdiv;
+var global_title = "";
+var global_sequence;
+var global_max_frame = 51;
+var global_fps = 25;
+
+var frame = 0;
+
+function next_frame() {
+
+  frame += 1;
+
+  // start animation again from the start if last frame reached (optional)
+  if ( frame == global_max_frame ) {
+    global_imgdiv.attr("src", "samplers/" + global_title + ".bmp");
+    frame = 0;
+    return;
+  }
+    var src = "SamplersAnimation/" + global_title + "" + global_sequence[frame] + ".bmp";
+    global_imgdiv.attr('src', src);
+
+
+  // call the function again
+  setTimeout( next_frame, 1000 / global_fps ); // change 25 with your desired FPS value.
+
+}
+
+    function animateSampler(title, imgdiv, sequence, maxFrame, fps) {
+        console.log("grid sequence " + sequence);
+        global_imgdiv = imgdiv;
+        global_title = title;
+        global_sequence = sequence;
+        global_max_frame = maxFrame;
+        global_fps = fps
+        next_frame();
+    }
+
+
     function loadGallery(setIDs, setClickAttr){
         var current_image,
             selector,
@@ -229,6 +316,8 @@ $(document).keydown(function(e){
             $('#image-gallery-image1').attr('src', $sel.data('image').split(";")[0]);
             $('#image-gallery-image2').attr('src', $sel.data('image').split(";")[1]);
             disableButtons(counter, $sel.data('image-id'));
+
+
         }
 
         if(setIDs == true){
