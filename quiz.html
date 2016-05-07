@@ -1658,28 +1658,17 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script>
-/*$('input[type="range"]').rangeslider();
-
-$('input[type="range"]').rangeslider('destroy');
-
-$('input[type="range"]').rangeslider('update', true);*/
-
-// init so all radio "    Somewhat Important" are checked off
 
 $(":radio[value=somewhat]").attr("checked", true);
 
-/*$(".question").each(function() {
-    var radios = $(this).find(":radio").hide();
-    $("<div></div>").slider({
-      min: parseInt(radios.first().val(), 10),
-      max: parseInt(radios.last().val(), 10),
-      slide: function(event, ui) {
-        radios.filter("[value=" + ui.value + "]").click();
-      }
-    }).appendTo(this);
-});*/
-
+// Relevancy is updated after user selects from the first page. Questions about "modelling", "importing data", and "rendering" will determine which questions to show.
 var relevant = [false, false, false];
+
+
+// This is unfortunately terribly done and id's are badly labeled.
+// It just show hides the next/previous page depending on what pages are relevant.
+// Simulates going next/previous.
+
 $("#button1").click(function(e) {
   e.preventDefault();
   relevant = checkRelevance();
@@ -1689,7 +1678,6 @@ $("#button1").click(function(e) {
   $("#gallery2").show();
   $("#results").hide();
   window.scrollTo(0, 0);
-  console.log("REVELEVANT " + relevant);
   if (!relevant[0]) {
     $("#button2").click();
   }
@@ -1770,79 +1758,57 @@ $("#button4back").click(function(e) {
 });
 
 $("#button5back").click(function(e) {
-  e.preventDefault();
-  $("#gallery").hide();
-  $("#gallery3").hide();
-  $("#gallery4").show()
-  $("#gallery2").hide();
-  $("#results").hide();
-  if (!relevant[2]) {
+    $("#gallery").hide();
+    $("#gallery3").hide();
+    $("#gallery4").show()
+    $("#gallery2").hide();
+    $("#results").hide();
+    if (!relevant[2]) {
     $("#button4back").click();
-  }
-  window.scrollTo(0, 0);
+    }
+    window.scrollTo(0, 0);
 });
 
 $("#button5").click(function(e){
     location.reload();
 });
 
+$(".thumbnail input:radio").click(function(e) {
+    e.stopPropagation();
+});
 
- $(".thumbnail input:radio").click(function(e) {
-        e.stopPropagation();
-   });
+$("#dataquestion").click(function(e) {
+    e.stopPropagation();
+    $(this).addClass("highlighted");
+});
 
- $("#dataquestion").click(function(e) {
-        e.stopPropagation();
-        $(this).addClass("highlighted");
-   });
+$("a[data-toggle=popover]").click(function(e) {
+    e.stopPropagation();
+});
 
-  $("a[data-toggle=popover]").click(function(e) {
-        e.stopPropagation();
-   });
-
- $(":input[value=essential]").parent().hide();
+$(":input[value=essential]").parent().hide();
 
 $(".thumbnail").click(function() {
- // var isChecked = $(this).find(":input:checkbox").checked
- console.log(this);
- if ($(this).type == "radio") return;
- if ($(this).is("#dataquestion")) return;
-  if ($(this).hasClass("highlighted")) {
-    console.log("had highlighted. remove class");
+
+
+// highlight or unhighlight questions that have been checked
+if ($(this).type == "radio") return;
+if ($(this).is("#dataquestion")) return;
+if ($(this).hasClass("highlighted")) {
     $(this).removeClass("highlighted");
     $(this).find(".question").hide();
     $(this).find(".dataquestion").hide();
     $(this).find(".dataquestion").find("checkbox").hide();
     $(this).find(":input:checkbox").prop('checked', false);
-
-  } else {
-    console.log("not highlighted, add higihlighted");
+} else {
     $(this).addClass("highlighted");
     $(this).find(".question").show();
     $(this).find(".dataquestion").show();
     $(this).find(".dataquestion").find(":input:checkbox").show();
     $(this).find(":input:checkbox").prop('checked', true);
-  }
+}
 });
 
-// TODO: don't hard code this
-/*document.getElementById('img1').onclick = function () //attach to onclick
-{                             
-        var checkbox = document.getElementById('checkbox1'); //find checkbox
-        checkbox.checked = !checkbox.checked; //toggle the checked status
-}
-
-document.getElementById('img2').onclick = function () //attach to onclick
-{                             
-        var checkbox = document.getElementById('checkbox2'); //find checkbox
-        checkbox.checked = !checkbox.checked; //toggle the checked status
-}
-
-document.getElementById('img3').onclick = function () //attach to onclick
-{                             
-        var checkbox = document.getElementById('checkbox3'); //find checkbox
-        checkbox.checked = !checkbox.checked; //toggle the checked status
-}*/
 
 </script>
 

@@ -37,6 +37,11 @@ body { background: #cecdd5; text-align: center; font-family: "HelveticaNeue-Ligh
         <div class="page-header">
             <h1>Pixel Sampling Examples</h1>
         </div>
+        <div>
+    <p>Sampling is used widely in computer graphics, especially in rendering (transforming a 3-Dimensional scene to a 2D image by simulating the way light would illuminate, reflect, reflect, etc. objects in the scene).</p>
+    <p>Samples are used in <a href="https://en.wikipedia.org/wiki/Spatial_anti-aliasing">anti-aliasing</a>, simulating cameras with depth of field, sampling lights to create soft shadows, and sampling <a href="https://en.wikipedia.org/wiki/Bidirectional_reflectance_distribution_function">BRDFS</a>.</p>
+    <p>Several sampling methods are illustrated below. Click the image to get a description and animation of the technique.</p>
+        </div>
 
         <div class="row">
 
@@ -244,7 +249,7 @@ $(document).keydown(function(e){
         var img1Title = img1.split("/")[1].split(".")[0];
         var img2Title = img2.split("/")[1].split(".")[0];
         console.log("click play. img1 " + img1Title + " img2 " + img2Title);
-        animateSampler(img2Title, imgdiv2, checkerSequence, 16, 2);
+        animateSampler(img2Title, imgdiv2, checkerSequence, 12, 2);
     });
 
 

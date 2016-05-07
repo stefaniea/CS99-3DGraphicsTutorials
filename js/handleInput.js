@@ -33,30 +33,25 @@ function checkRelevance() {
 	return rel;
 }
 
-// Handles form submission by counting values into map
-// TODO: weighting
-// TODO: quiz1 versus quiz2, etc.
+// Handles form submission by counting values into answerMap
 function handleFormSubmit() {
-	var answerMap = {};
-
-	console.log("handling form submit");
+	var answerMap = {}; // map from property to score. e.g. {animation, 3}
 	var allInputs = $( ":input:checkbox" );
-	console.log("number of inputs is " + allInputs.length);
-	console.log("about to handle");
- 	for (var i = 0; i < allInputs.length; i++) { // all but last one (button)
+ 	for (var i = 0; i < allInputs.length; i++) { // for all inputs but last one (because it is a button)
  		elem = allInputs[i];
- 		console.log("handling elem " + elem.value);
- 		if (elem.checked) {
- 			console.log("element was checked");
+ 		if (elem.checked) { // this value checked yes
  			var radio = $(elem.parentElement).find('input:radio:checked');
- 			console.log("radio button is" + radio);
- 			var weight = 1;
+ 			var weight = 1; // default
+
+ 			// weight 1 -> somewhat, 2 -> very, 3 -> essential
  			if (radio != null) {
  				if (radio.length > 0) radio = radio[0];
 	 			if (radio.value == "somewhat") weight = 1;
 	 			if (radio.value == "very") weight = 2;
 	 			if (radio.value == "essential") weight = 3;
  		}
+
+ 			// add or insert to map
  			var vals = elem.value;
  			var vallist = splitBySemiColon(vals);
  			for (val of vallist) {
@@ -69,21 +64,11 @@ function handleFormSubmit() {
  		}
  	}
 
- 	return getResults(answerMap);
-
- 	//return answerMap;
+ 	return openAndScoreData(answerMap, true);
  }
 
- function getResults(answerMap) {
- 	console.log("answer map " + answerMap);
- 	console.log("length of answer map " + answerMap.length);
-
- 	openAndScoreData(answerMap, true);
- 	return true;
- }
-
+ 	// sort function -- reverse order
  function sortResults(results) {
- 	// sort backwards
 	return results.sort(function(a, b){
 	    if(a.score > b.score) return -1;
 	    if(a.score < b.score) return 1;
@@ -125,7 +110,8 @@ function matchesToList(r_matches) {
 }
 
 // Given sorted results (including name, score, and matches) display them in order.
-// Displays the first 6 in detail and the rest just names
+// Displays the first 6 in detail and the rest list names
+// Lists at max 10 results
 function displayResults(results) {
 	var section = $("#results");
 	var i = 0;

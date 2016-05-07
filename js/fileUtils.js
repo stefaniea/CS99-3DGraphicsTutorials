@@ -657,6 +657,7 @@ var results = [];
         "edit": "yes",
         "windows": "yes",
         "mac": "no",
+        "precise": "yes",
         "linux": "no",
         "polygon": "yes",
         "rigging": "no",
